@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>网站信息配置</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/colorpicker.js"></script>
+<script type="text/javascript">
+function tabs(tabobj, obj)
+{
+	$("#"+tabobj+" li[id^="+tabobj+"]").each(function(i){
+		if(tabobj+"_title"+i == obj.id)
+		{
+			$("#"+tabobj+"_title"+i).attr("class","on");
+			$("#"+tabobj+"_content"+i).show();
+		}
+		else
+		{
+			$("#"+tabobj+"_title"+i).attr("class","");
+			$("#"+tabobj+"_content"+i).hide();
+		}
+	});
+}
+
+function UserThisLoginBg(str)
+{
+	if(str == ""){
+		$("#cfg_loginbgimg").val("");
+		$("#loginbgimg_prew").attr("src","templates/images/nologinbg.jpg");
+	}else{
+		$("#cfg_loginbgimg").val(str);
+		$("#loginbgimg_prew").attr("src",str);
+	}
+}
+
+function DelThisLoginBg(str)
+{
+	$.ajax({
+		url : "ajax_do.php?action=delloginbg&delloginbg="+str,
+		type: 'get',
+		dataType:'html',
+		beforeSend:function(){},
+		success:function(data){
+			if(data){
+				$("div[rel='"+str+"']").remove();
+			}
+		}
+	});
+}
+</script>
+</head>
+<body>
+<div class="topToolbar"> <span class="title">网站信息配置</span> <a href="javascript:location.reload();" class="reload">刷新</a></div>
+<div class="toolbarTab">
+	<ul id="tabs">
+		<li id="tabs_title0" onclick="tabs('tabs',this);" class=""><a href="javascript:;">基本设置</a></li><li class="line">-</li><li id="tabs_title1" onclick="tabs('tabs',this);" class=""><a href="javascript:;">附件设置</a></li><li class="line">-</li><li id="tabs_title2" onclick="tabs('tabs',this);" class="on"><a href="javascript:;">性能设置</a></li><li class="line">-</li><li id="tabs_title3" onclick="tabs('tabs',this);" class=""><a href="javascript:;">URL静态化</a></li><li class="line">-</li><li id="tabs_title4" onclick="tabs('tabs',this);" class=""><a href="javascript:;">核心设置</a></li><li class="line">-</li>		<li class="" id="tabs_title5" onclick="tabs('tabs',this);"><a href="javascript:;">水印设置</a></li>
+		<li class="line">-</li>
+		<li class="" id="tabs_title6" onclick="tabs('tabs',this);"><a href="javascript:;">界面设置</a></li>
+		<li class="line">-</li>
+		<li class="" id="tabs_title7" onclick="tabs('tabs',this);"><a href="javascript:;">增加新变量</a></li>
+	</ul>
+</div>
+<!--cfg_var-->
+<form name="form_cfg_var" method="post" action="">
+		<div style="display: none;" class="" id="tabs_content0"> 
+		<!--使用DIV兼容chrome firefox等浏览器-->
+		<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody><tr>
+				<td align="right" width="25%" height="40">网站名称：</td>
+				<td width="40%"><input name="cfg_webname" id="cfg_webname" value="我的网站" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_webname</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">网站地址：</td>
+				<td width="40%"><input name="cfg_weburl" id="cfg_weburl" value="http://123.57.218.171" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_weburl</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">网站目录：</td>
+				<td width="40%"><input name="cfg_webpath" id="cfg_webpath" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_webpath</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">网站作者：</td>
+				<td width="40%"><input name="cfg_author" id="cfg_author" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_author</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">程序引擎：</td>
+				<td width="40%"><input name="cfg_generator" id="cfg_generator" value="PHPMyWind CMS" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_generator</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">SEO标题：</td>
+				<td width="40%"><input name="cfg_seotitle" id="cfg_seotitle" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_seotitle</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">关键字设置：</td>
+				<td width="40%"><input name="cfg_keyword" id="cfg_keyword" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_keyword</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">网站描述：</td>
+				<td width="40%"><textarea name="cfg_description" id="cfg_description" class="textarea" style="margin:7px 0;"></textarea></td>
+				<td width="35%"><span class="siteSetTag">$cfg_description</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">版权信息：</td>
+				<td width="40%"><textarea name="cfg_copyright" id="cfg_copyright" class="textarea" style="margin:7px 0;">Copyright © 2010 - 2014 phpMyWind.com All Rights Reserved</textarea></td>
+				<td width="35%"><span class="siteSetTag">$cfg_copyright</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">客服热线：</td>
+				<td width="40%"><input name="cfg_hotline" id="cfg_hotline" value="400-800-8888" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_hotline</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">备案编号：</td>
+				<td width="40%"><input name="cfg_icp" id="cfg_icp" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_icp</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">启用站点：</td>
+				<td width="40%"><input name="cfg_webswitch" id="cfg_webswitch" value="Y" checked="checked" type="radio"> 是 &nbsp;<input name="cfg_webswitch" id="cfg_webswitch" value="N" type="radio"> 否</td>
+				<td width="35%"><span class="siteSetTag">$cfg_webswitch</span></td>
+			</tr>
+						<tr class="nb">
+				<td align="right" width="25%" height="40">关闭说明：</td>
+				<td width="40%"><textarea name="cfg_switchshow" id="cfg_switchshow" class="textarea" style="margin:7px 0;">对不起，网站维护，请稍后登录。&lt;br /&gt;网站维护期间对您造成的不便，请谅解！</textarea></td>
+				<td width="35%"><span class="siteSetTag">$cfg_switchshow</span></td>
+			</tr>
+						<tr class="nb">
+				<td align="right" width="25%" height="40">&nbsp;</td>
+				<td width="40%">多站点状态下各站只区分基本设置项，其他设置多站共享</td>
+				<td width="35%">&nbsp;</td>
+			</tr>
+			<tr class="nb">
+				<td colspan="3"><div class="formSubBtn">
+					<input class="submit" value="提交" type="submit">
+					<input class="back" value="返回" onclick="history.go(-1);" type="button">
+					<input name="action" id="action" value="update" type="hidden">
+				</div></td>
+			</tr>
+		</tbody></table>
+	</div>
+		<div style="display: none;" class="undis" id="tabs_content1"> 
+		<!--使用DIV兼容chrome firefox等浏览器-->
+		<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody><tr>
+				<td align="right" width="25%" height="40">上传图片类型：</td>
+				<td width="40%"><input name="cfg_upload_img_type" id="cfg_upload_img_type" value="gif|png|jpg|bmp" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_upload_img_type</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">上传软件类型：</td>
+				<td width="40%"><input name="cfg_upload_soft_type" id="cfg_upload_soft_type" value="zip|gz|rar|iso|doc|xls|ppt|wps|txt" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_upload_soft_type</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">上传媒体类型：</td>
+				<td width="40%"><input name="cfg_upload_media_type" id="cfg_upload_media_type" value="swf|flv|mpg|mp3|rm|rmvb|wmv|wma|wav" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_upload_media_type</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">上传文件大小：</td>
+				<td width="40%"><input name="cfg_max_file_size" id="cfg_max_file_size" value="2097152" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_max_file_size</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">自动缩略图方式　<br>(是"裁切",否"填充")：</td>
+				<td width="40%"><input name="cfg_imgresize" id="cfg_imgresize" value="Y" checked="checked" type="radio"> 是 &nbsp;<input name="cfg_imgresize" id="cfg_imgresize" value="N" type="radio"> 否</td>
+				<td width="35%"><span class="siteSetTag">$cfg_imgresize</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">流量统计代码：</td>
+				<td width="40%"><textarea name="cfg_countcode" id="cfg_countcode" class="textarea" style="margin:7px 0;"></textarea></td>
+				<td width="35%"><span class="siteSetTag">$cfg_countcode</span></td>
+			</tr>
+						<tr class="nb">
+				<td align="right" width="25%" height="40">在线QQ　<br>(多个用","分隔)：</td>
+				<td width="40%"><textarea name="cfg_qqcode" id="cfg_qqcode" class="textarea" style="margin:7px 0;"></textarea></td>
+				<td width="35%"><span class="siteSetTag">$cfg_qqcode</span></td>
+			</tr>
+						<tr class="nb">
+				<td align="right" width="25%" height="40">&nbsp;</td>
+				<td width="40%">多站点状态下各站只区分基本设置项，其他设置多站共享</td>
+				<td width="35%">&nbsp;</td>
+			</tr>
+			<tr class="nb">
+				<td colspan="3"><div class="formSubBtn">
+					<input class="submit" value="提交" type="submit">
+					<input class="back" value="返回" onclick="history.go(-1);" type="button">
+					<input name="action" id="action" value="update" type="hidden">
+				</div></td>
+			</tr>
+		</tbody></table>
+	</div>
+		<div style="display: block;" class="undis" id="tabs_content2"> 
+		<!--使用DIV兼容chrome firefox等浏览器-->
+		<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody><tr>
+				<td align="right" width="25%" height="40">数据库类型(支持mysql和mysqli)：</td>
+				<td width="40%"><input name="cfg_mysql_type" id="cfg_mysql_type" value="mysqli" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_mysql_type</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">每页显示记录数：</td>
+				<td width="40%"><input name="cfg_pagenum" id="cfg_pagenum" value="20" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_pagenum</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">服务器时区设置：</td>
+				<td width="40%"><input name="cfg_timezone" id="cfg_timezone" value="8" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_timezone</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">自动跳转手机版：</td>
+				<td width="40%"><input name="cfg_mobile" id="cfg_mobile" value="Y" checked="checked" type="radio"> 是 &nbsp;<input name="cfg_mobile" id="cfg_mobile" value="N" type="radio"> 否</td>
+				<td width="35%"><span class="siteSetTag">$cfg_mobile</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">开启会员功能：</td>
+				<td width="40%"><input name="cfg_member" id="cfg_member" value="Y" checked="checked" type="radio"> 是 &nbsp;<input name="cfg_member" id="cfg_member" value="N" type="radio"> 否</td>
+				<td width="35%"><span class="siteSetTag">$cfg_member</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">开启一键登录：</td>
+				<td width="40%"><input name="cfg_oauth" id="cfg_oauth" value="Y" checked="checked" type="radio"> 是 &nbsp;<input name="cfg_oauth" id="cfg_oauth" value="N" type="radio"> 否</td>
+				<td width="35%"><span class="siteSetTag">$cfg_oauth</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">开启文章评论：</td>
+				<td width="40%"><input name="cfg_comment" id="cfg_comment" value="Y" checked="checked" type="radio"> 是 &nbsp;<input name="cfg_comment" id="cfg_comment" value="N" type="radio"> 否</td>
+				<td width="35%"><span class="siteSetTag">$cfg_comment</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">开启二级类别：</td>
+				<td width="40%"><input name="cfg_maintype" id="cfg_maintype" value="Y" type="radio"> 是 &nbsp;<input name="cfg_maintype" id="cfg_maintype" value="N" checked="checked" type="radio"> 否</td>
+				<td width="35%"><span class="siteSetTag">$cfg_maintype</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">类别默认折叠：</td>
+				<td width="40%"><input name="cfg_typefold" id="cfg_typefold" value="Y" type="radio"> 是 &nbsp;<input name="cfg_typefold" id="cfg_typefold" value="N" checked="checked" type="radio"> 否</td>
+				<td width="35%"><span class="siteSetTag">$cfg_typefold</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">管理页工具条：</td>
+				<td width="40%"><input name="cfg_quicktool" id="cfg_quicktool" value="Y" checked="checked" type="radio"> 是 &nbsp;<input name="cfg_quicktool" id="cfg_quicktool" value="N" type="radio"> 否</td>
+				<td width="35%"><span class="siteSetTag">$cfg_quicktool</span></td>
+			</tr>
+						<tr class="nb">
+				<td align="right" width="25%" height="40">PHP错误显示：</td>
+				<td width="40%"><input name="cfg_diserror" id="cfg_diserror" value="Y" checked="checked" type="radio"> 是 &nbsp;<input name="cfg_diserror" id="cfg_diserror" value="N" type="radio"> 否</td>
+				<td width="35%"><span class="siteSetTag">$cfg_diserror</span></td>
+			</tr>
+						<tr class="nb">
+				<td align="right" width="25%" height="40">&nbsp;</td>
+				<td width="40%">多站点状态下各站只区分基本设置项，其他设置多站共享</td>
+				<td width="35%">&nbsp;</td>
+			</tr>
+			<tr class="nb">
+				<td colspan="3"><div class="formSubBtn">
+					<input class="submit" value="提交" type="submit">
+					<input class="back" value="返回" onclick="history.go(-1);" type="button">
+					<input name="action" id="action" value="update" type="hidden">
+				</div></td>
+			</tr>
+		</tbody></table>
+	</div>
+		<div style="display: none;" class="undis" id="tabs_content3"> 
+		<!--使用DIV兼容chrome firefox等浏览器-->
+		<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody><tr>
+				<td align="right" width="25%" height="40">是否启用伪静态：</td>
+				<td width="40%"><input name="cfg_isreurl" id="cfg_isreurl" value="Y" type="radio"> 是 &nbsp;<input name="cfg_isreurl" id="cfg_isreurl" value="N" checked="checked" type="radio"> 否</td>
+				<td width="35%"><span class="siteSetTag">$cfg_isreurl</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">首页规则：</td>
+				<td width="40%"><input name="cfg_reurl_index" id="cfg_reurl_index" value="index.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_index</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">关于我们页：</td>
+				<td width="40%"><input name="cfg_reurl_about" id="cfg_reurl_about" value="{about}-{cid}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_about</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">新闻中心页：</td>
+				<td width="40%"><input name="cfg_reurl_news" id="cfg_reurl_news" value="{news}-{cid}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_news</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">新闻内容页：</td>
+				<td width="40%"><input name="cfg_reurl_newsshow" id="cfg_reurl_newsshow" value="{newsshow}-{cid}-{id}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_newsshow</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">产品展示页：</td>
+				<td width="40%"><input name="cfg_reurl_product" id="cfg_reurl_product" value="{product}-{cid}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_product</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">产品内容页：</td>
+				<td width="40%"><input name="cfg_reurl_productshow" id="cfg_reurl_productshow" value="{productshow}-{cid}-{id}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_productshow</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">案例展示页：</td>
+				<td width="40%"><input name="cfg_reurl_case" id="cfg_reurl_case" value="{case}-{cid}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_case</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">案例内容页：</td>
+				<td width="40%"><input name="cfg_reurl_caseshow" id="cfg_reurl_caseshow" value="{caseshow}-{cid}-{id}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_caseshow</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">人才招聘页：</td>
+				<td width="40%"><input name="cfg_reurl_join" id="cfg_reurl_join" value="{join}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_join</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">招聘内容页：</td>
+				<td width="40%"><input name="cfg_reurl_joinshow" id="cfg_reurl_joinshow" value="{joinshow}-{id}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_joinshow</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">客户留言页：</td>
+				<td width="40%"><input name="cfg_reurl_message" id="cfg_reurl_message" value="{message}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_message</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">联系我们页：</td>
+				<td width="40%"><input name="cfg_reurl_contact" id="cfg_reurl_contact" value="{contact}-{cid}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_contact</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">软件下载页：</td>
+				<td width="40%"><input name="cfg_reurl_soft" id="cfg_reurl_soft" value="{soft}-{cid}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_soft</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">软件内容页：</td>
+				<td width="40%"><input name="cfg_reurl_softshow" id="cfg_reurl_softshow" value="{softshow}-{cid}-{id}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_softshow</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">商品展示页：</td>
+				<td width="40%"><input name="cfg_reurl_goods" id="cfg_reurl_goods" value="{goods}-{cid}-{tid}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_goods</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">商品内容页：</td>
+				<td width="40%"><input name="cfg_reurl_goodsshow" id="cfg_reurl_goodsshow" value="{goodsshow}-{cid}-{tid}-{id}-{page}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_goodsshow</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">投票内容页：</td>
+				<td width="40%"><input name="cfg_reurl_vote" id="cfg_reurl_vote" value="{vote}-{id}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_vote</span></td>
+			</tr>
+						<tr class="nb">
+				<td align="right" width="25%" height="40">自定义规则：</td>
+				<td width="40%"><input name="cfg_reurl_custom" id="cfg_reurl_custom" value="{file}.html" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_reurl_custom</span></td>
+			</tr>
+			<tr class="nb"><td height="40">&nbsp;</td><td><a href="http://123.57.218.171/admin/rewriteurl.php" target="_blank" style="text-decoration:underline;">生成伪静态规则 (如修改过规则，请先提交保存)</a></td></tr>			<tr class="nb">
+				<td align="right" width="25%" height="40">&nbsp;</td>
+				<td width="40%">多站点状态下各站只区分基本设置项，其他设置多站共享</td>
+				<td width="35%">&nbsp;</td>
+			</tr>
+			<tr class="nb">
+				<td colspan="3"><div class="formSubBtn">
+					<input class="submit" value="提交" type="submit">
+					<input class="back" value="返回" onclick="history.go(-1);" type="button">
+					<input name="action" id="action" value="update" type="hidden">
+				</div></td>
+			</tr>
+		</tbody></table>
+	</div>
+		<div style="display: none;" class="undis" id="tabs_content4"> 
+		<!--使用DIV兼容chrome firefox等浏览器-->
+		<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody><tr>
+				<td align="right" width="25%" height="40">网站标识码：</td>
+				<td width="40%"><input name="cfg_auth_key" id="cfg_auth_key" value="6fq1iLCnHFTgSwqu" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_auth_key</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">支付宝帐户：</td>
+				<td width="40%"><input name="cfg_alipay_uname" id="cfg_alipay_uname" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_alipay_uname</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">支付宝合作身份者ID：</td>
+				<td width="40%"><input name="cfg_alipay_partner" id="cfg_alipay_partner" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_alipay_partner</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">支付宝安全检验码：</td>
+				<td width="40%"><input name="cfg_alipay_key" id="cfg_alipay_key" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_alipay_key</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">QQ登录组件AppID：</td>
+				<td width="40%"><input name="cfg_qq_appid" id="cfg_qq_appid" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_qq_appid</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">QQ登录组件AppKey：</td>
+				<td width="40%"><input name="cfg_qq_appkey" id="cfg_qq_appkey" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_qq_appkey</span></td>
+			</tr>
+						<tr>
+				<td align="right" width="25%" height="40">微博登录组件AppID：</td>
+				<td width="40%"><input name="cfg_weibo_appid" id="cfg_weibo_appid" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_weibo_appid</span></td>
+			</tr>
+						<tr class="nb">
+				<td align="right" width="25%" height="40">微博登录组件AppKey：</td>
+				<td width="40%"><input name="cfg_weibo_appkey" id="cfg_weibo_appkey" class="input" type="text"></td>
+				<td width="35%"><span class="siteSetTag">$cfg_weibo_appkey</span></td>
+			</tr>
+						<tr class="nb">
+				<td align="right" width="25%" height="40">&nbsp;</td>
+				<td width="40%">多站点状态下各站只区分基本设置项，其他设置多站共享</td>
+				<td width="35%">&nbsp;</td>
+			</tr>
+			<tr class="nb">
+				<td colspan="3"><div class="formSubBtn">
+					<input class="submit" value="提交" type="submit">
+					<input class="back" value="返回" onclick="history.go(-1);" type="button">
+					<input name="action" id="action" value="update" type="hidden">
+				</div></td>
+			</tr>
+		</tbody></table>
+	</div>
+	</form>
+<!--/cfg_var end--> 
+<!--setwatermark-->
+<form name="form_watermark" method="post" action="">
+	<div style="display: none;" class="undis" id="tabs_content5">
+		<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td align="right" width="25%" height="40">是否开启水印：</td>
+				<td width="75%"><input name="cfg_markswitch" id="cfg_markswitch" value="Y" type="radio">
+					启用 &nbsp;
+					<input name="cfg_markswitch" id="cfg_markswitch" value="N" checked="checked" type="radio">
+					关闭</td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">水印添加条件：</td>
+				<td width="75%">宽&nbsp;
+					<input name="cfg_markminwidth" id="cfg_markminwidth" value="100" class="input" style="width:50px;" type="text">
+					px&nbsp;&nbsp;高&nbsp;
+					<input name="cfg_markminheight" id="cfg_markminheight" value="100" class="input" style="width:50px;" type="text">
+					px </td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">水印类型：</td>
+				<td width="75%"><input name="cfg_marktype" id="cfg_marktype" value="0" onclick="document.getElementById('watermarkimgarea').style.display='block';document.getElementById('watermarktextarea').style.display='none';" checked="checked" type="radio">
+					图片 &nbsp;
+					<input name="cfg_marktype" id="cfg_marktype" value="1" onclick="document.getElementById('watermarkimgarea').style.display='none';document.getElementById('watermarktextarea').style.display='block';" type="radio">
+					文字</td>
+			</tr>
+			<tr>
+				<td colspan="2" height="40"><div id="watermarkimgarea" style="display:block">
+						<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td align="right" width="25%" height="40">水印预览：</td>
+								<td width="75%"><img src="home_data/watermarket.png" id="watermark_prew">
+									<input name="cfg_markpicurl" id="cfg_markpicurl" value="data/watermark/watermarket.png" type="hidden"></td>
+							</tr>
+							<tr class="nb">
+								<td align="right" width="25%" height="40">上传水印：</td>
+								<td><iframe style="top:2px" src="home_data/upload_imagefile.htm" scrolling="no" width="100%" frameborder="0" height="22"></iframe></td>
+							</tr>
+						</tbody></table>
+					</div>
+					<div id="watermarktextarea" style="display:none">
+						<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody><tr>
+								<td align="right" width="25%" height="40">水印文字：</td>
+								<td width="75%"><input name="cfg_marktext" id="cfg_marktext" class="input" value="PHPMyWind" style="color:#0000FF;" type="text"></td>
+							</tr>
+							<tr>
+								<td align="right" height="40">文字颜色：</td>
+								<td><input name="cfg_markcolor" id="cfg_markcolor" class="input" value="#0000FF" type="text">
+									&nbsp;&nbsp;
+									<div class="titlePanel"> <span onclick="colorpicker('colorpanel','cfg_markcolor','cfg_marktext');" class="color" title="水印颜色"> </span> <span id="colorpanel"></span> </div></td>
+							</tr>
+							<tr class="nb">
+								<td align="right" height="40">文字大小：</td>
+								<td><input name="cfg_marksize" id="cfg_marksize" class="input" value="48" type="text">
+									<span class="cnote">最大字号为25号</span></td>
+							</tr>
+						</tbody></table>
+					</div></td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">水印位置：</td>
+				<td width="75%"><input name="cfg_markwhere" id="cfg_markwhere" value="1" type="radio">
+					左上
+					&nbsp;
+					<input name="cfg_markwhere" id="cfg_markwhere" value="2" type="radio">
+					中上
+					&nbsp;
+					<input name="cfg_markwhere" id="cfg_markwhere" value="3" type="radio">
+					右上</td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">&nbsp;</td>
+				<td width="75%"><input name="cfg_markwhere" id="cfg_markwhere" value="4" type="radio">
+					左中
+					&nbsp;
+					<input name="cfg_markwhere" id="cfg_markwhere" value="5" type="radio">
+					中间
+					&nbsp;
+					<input name="cfg_markwhere" id="cfg_markwhere" value="6" type="radio">
+					右中</td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">&nbsp;</td>
+				<td width="75%"><input name="cfg_markwhere" id="cfg_markwhere" value="7" type="radio">
+					左下
+					&nbsp;
+					<input name="cfg_markwhere" id="cfg_markwhere" value="8" type="radio">
+					中下
+					&nbsp;
+					<input name="cfg_markwhere" id="cfg_markwhere" value="9" checked="checked" type="radio">
+					右下</td>
+			</tr>
+			<tr class="nb">
+				<td align="right" width="25%" height="40">&nbsp;</td>
+				<td width="75%"><input name="cfg_markwhere" id="cfg_markwhere" value="0" type="radio">
+					随机</td>
+			</tr>
+			<tr class="nb">
+				<td colspan="2">
+					<div class="formSubBtn">
+					<input class="submit" value="提交" type="submit">
+					<input class="back" value="返回" onclick="history.go(-1);" type="button">
+					<input name="action" id="action" value="update_wmk" type="hidden">
+				</div></td>
+			</tr>
+		</tbody></table>
+	</div>
+</form>
+<!--/setwatermark end--> 
+<!--setui-->
+<form name="form_manageui" method="post" action="">
+	<div style="display: none;" class="undis" id="tabs_content6">
+		<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr class="nb">
+				<td align="right" width="25%" height="40">登录背景预览：</td>
+				<td class="loginBgList" width="75%">
+										<div><img src="home_data/loginBg_09.jpg" id="loginbgimg_prew" style="margin-bottom:7px;" width="244"></div>
+					<input name="cfg_loginbgimg" id="cfg_loginbgimg" class="input" value="templates/images/loginbg/loginBg_09.jpg" type="hidden"></td>
+			</tr>
+			<tr>
+				<td align="right" height="40">&nbsp;</td>
+				<td><iframe style="top:2px" src="home_data/upload_imagefile_002.htm" scrolling="no" width="100%" frameborder="0" height="22"></iframe></td>
+			</tr>
+			<tr>
+				<td align="right" height="40">图片背景选择：</td>
+				<td class="loginBgList">
+				<div rel="templates/images/loginbg/loginBg_09.jpg"><span class="selimg"><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_09.jpg')"><img src="home_data/loginBg_09.jpg" width="244"></a></span><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_09.jpg')">使用</a> - <a href="javascript:;" onclick="DelThisLoginBg('templates/images/loginbg/loginBg_09.jpg')">删除</a></div><div rel="templates/images/loginbg/loginBg_02.jpg"><span class="selimg"><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_02.jpg')"><img src="home_data/loginBg_02.jpg" width="244"></a></span><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_02.jpg')">使用</a> - <a href="javascript:;" onclick="DelThisLoginBg('templates/images/loginbg/loginBg_02.jpg')">删除</a></div><div rel="templates/images/loginbg/loginBg_04.jpg"><span class="selimg"><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_04.jpg')"><img src="home_data/loginBg_04.jpg" width="244"></a></span><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_04.jpg')">使用</a> - <a href="javascript:;" onclick="DelThisLoginBg('templates/images/loginbg/loginBg_04.jpg')">删除</a></div><div rel="templates/images/loginbg/loginBg_11.jpg"><span class="selimg"><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_11.jpg')"><img src="home_data/loginBg_11.jpg" width="244"></a></span><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_11.jpg')">使用</a> - <a href="javascript:;" onclick="DelThisLoginBg('templates/images/loginbg/loginBg_11.jpg')">删除</a></div><div rel="templates/images/loginbg/loginBg_08.jpg"><span class="selimg"><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_08.jpg')"><img src="home_data/loginBg_08.jpg" width="244"></a></span><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_08.jpg')">使用</a> - <a href="javascript:;" onclick="DelThisLoginBg('templates/images/loginbg/loginBg_08.jpg')">删除</a></div><div rel="templates/images/loginbg/loginBg_01.jpg"><span class="selimg"><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_01.jpg')"><img src="home_data/loginBg_01.jpg" width="244"></a></span><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_01.jpg')">使用</a> - <a href="javascript:;" onclick="DelThisLoginBg('templates/images/loginbg/loginBg_01.jpg')">删除</a></div><div rel="templates/images/loginbg/loginBg_10.jpg"><span class="selimg"><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_10.jpg')"><img src="home_data/loginBg_10.jpg" width="244"></a></span><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_10.jpg')">使用</a> - <a href="javascript:;" onclick="DelThisLoginBg('templates/images/loginbg/loginBg_10.jpg')">删除</a></div><div rel="templates/images/loginbg/loginBg_07.jpg"><span class="selimg"><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_07.jpg')"><img src="home_data/loginBg_07.jpg" width="244"></a></span><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_07.jpg')">使用</a> - <a href="javascript:;" onclick="DelThisLoginBg('templates/images/loginbg/loginBg_07.jpg')">删除</a></div><div rel="templates/images/loginbg/loginBg_06.jpg"><span class="selimg"><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_06.jpg')"><img src="home_data/loginBg_06.jpg" width="244"></a></span><a href="javascript:;" onclick="UserThisLoginBg('templates/images/loginbg/loginBg_06.jpg')">使用</a> - <a href="javascript:;" onclick="DelThisLoginBg('templates/images/loginbg/loginBg_06.jpg')">删除</a></div>				<div><span class="selimg"><a href="javascript:;" onclick="UserThisLoginBg('')"><img src="home_data/nologinbg.jpg" width="244"></a></span><a href="javascript:;" onclick="UserThisLoginBg('')">使用</a></div></td>
+			</tr>
+			<tr>
+				<td align="right" height="40">背景颜色选择：</td>
+				<td><input name="cfg_loginbgcolor" id="cfg_loginbgcolor" class="input" style="color:;" type="text">
+					&nbsp;&nbsp;
+					<div class="titlePanel">&nbsp;<span onclick="colorpicker('colorpanel2','cfg_loginbgcolor','cfg_loginbgcolor');" class="color" title="水印颜色"> </span> <span id="colorpanel2"></span> </div></td>
+			</tr>
+			<tr>
+				<td align="right" height="40">图片背景重复：</td>
+				<td><input name="cfg_loginbgrepeat" id="cfg_loginbgrepeat" value="0" type="radio">
+					不平铺
+					&nbsp;
+					<input name="cfg_loginbgrepeat" id="cfg_loginbgrepeat" value="1" checked="checked" type="radio">
+					横向平铺
+					&nbsp;
+					<input name="cfg_loginbgrepeat" id="cfg_loginbgrepeat" value="2" type="radio">
+					竖向平铺</td>
+			</tr>
+			<tr class="nb">
+				<td align="right" height="40">图片背景对齐：</td>
+				<td><input name="cfg_loginbgpos" id="cfg_loginbgpos" value="0" type="radio">
+					左对齐
+					&nbsp;
+					<input name="cfg_loginbgpos" id="cfg_loginbgpos" value="1" checked="checked" type="radio">
+					居中对齐
+					&nbsp;
+					<input name="cfg_loginbgpos" id="cfg_loginbgpos" value="2" type="radio">
+					右对齐</td>
+			</tr>
+			<tr class="nb">
+				<td colspan="2">
+					<div class="formSubBtn">
+					<input class="submit" value="提交" type="submit">
+					<input class="back" value="返回" onclick="history.go(-1);" type="button">
+					<input name="action" id="action" value="update_manageui" type="hidden">
+				</div></td>
+			</tr>
+		</tbody></table>
+	</div>
+</form>
+<!--/setui end--> 
+<!--addvarname-->
+<form name="form_addvarname" method="post" action="">
+	<div style="display: none;" class="undis" id="tabs_content7">
+		<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td align="right" width="25%" height="40">变量名称：</td>
+				<td width="75%"><input name="varname" id="varname" class="input" type="text">
+					<span class="maroon">*</span><span class="cnote">系统会自动为变量添加 '$cfg_' 前缀</span></td>
+			</tr>
+			<tr>
+				<td align="right" height="40">参数说明：</td>
+				<td><input name="varinfo" id="varinfo" class="input" type="text">
+					<span class="maroon">*</span></td>
+			</tr>
+			<tr>
+				<td align="right" height="40">变量值：</td>
+				<td><input name="varvalue" id="varvalue" class="input" type="text"></td>
+			</tr>
+			<tr>
+				<td align="right" height="40">变量类型：</td>
+				<td><input name="vartype" value="string" checked="checked" type="radio">
+					文本&nbsp;
+					<input name="vartype" value="number" type="radio">
+					数字&nbsp;
+					<input name="vartype" value="bool" type="radio">
+					布尔(Y/N)&nbsp;
+					<input name="vartype" value="bstring" type="radio">
+					多行文本 </td>
+			</tr>
+			<tr class="nb">
+				<td align="right" height="40">所属组：</td>
+				<td><select name="vargroup"><option selected="selected" value="0">基本设置</option><option value="1">附件设置</option><option value="2">性能设置</option><option value="3">URL静态化</option><option value="4">核心设置</option></select></td>
+			</tr>
+			<tr class="nb">
+				<td colspan="2"><div class="formSubBtn">
+					<input class="submit" value="提交" type="submit">
+					<input class="back" value="返回" onclick="history.go(-1);" type="button">
+					<input name="action" id="action" value="add" type="hidden">
+				</div></td>
+			</tr>
+		</tbody></table>
+	</div>
+</form>
+<!--/addvarname end-->
+
+</body></html>
