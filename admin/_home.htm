@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <title>后台首页</title> 
+  <link href="assets/css/admin.css" rel="stylesheet" type="text/css" /> 
+  <script type="text/javascript" src="assets/js/jquery.js"></script> 
+  <script type="text/javascript">
+$(function(){
+	//控制便签
+	$("#homeNote").focus(function(){
+		$(".notearea").addClass("borderOn");
+		if($.trim($(this).val()) == "点击输入便签内容..."){
+			$(this).val("");
+		}
+	}).blur(function(){
+		$(".notearea").removeClass("borderOn");
+		if($.trim($(this).val()) == ""){
+			$.ajax({
+				url : "ajax_do.php",
+				type:'post',
+				data:{"action":"deladminnotes"},
+				dataType:'html',
+				success:function(data){	
+				}
+			});
+			$(this).val("点击输入便签内容...");
+		}else{
+			$.ajax({
+				url : "ajax_do.php",
+				type:'post',
+				data:{"action":"adminnotes", "body":$.trim($(this).val())},
+				dataType:'html',
+				success:function(data){
+				}
+			});
+		}
+	});
+
+	$("#showad").html('<iframe src="showad.php" width="100%" height="25" scrolling="no" frameborder="0" allowtransparency="true"></iframe>');
+});
+</script> 
+ </head> 
+ <body> 
+  <div class="homeHeader"> 
+		<div class="topToolbar">
+			<span class="title">首页</span> <a href="javascript:location.reload();" class="reload">刷新</a>
+		</div> 
+  </div> 
+  <div class="homeCont"> 
+   <div class="leftArea"> 
+    <div class="homeQuick"> 
+     <h2 class="title">快捷<span><a href="#">更多&gt;&gt;</a></span></h2> 
+     <div class="lnkarea"> 
+      <a href="#" class="lnk"> <img src="assets/images/lnkBg01.png" />用户管理</a> 
+      <a href="#" class="lnk"> <img src="assets/images/lnkBg02.png" />套餐管理</a> 
+      <a href="#" class="lnk"> <img src="assets/images/lnkBg03.png" />订单管理</a> 
+      <a href="#" class="lnk"> <img src="assets/images/lnkBg04.png" />直播厅管理</a> 
+      <div class="cl"></div> 
+     </div> 
+    </div> 
+    <div class="site"> 
+     <h2 class="title">系统</h2> 
+     <table border="0" cellpadding="0" cellspacing="0" width="100%"> 
+      <tbody>
+       <tr> 
+        <td colspan="2" height="33">后台版本号： <span title="201412281230">V1.0.1 Beta</span></td> 
+       </tr> 
+       <tr> 
+        <td width="50%" height="33">服务器版本： <span title="nginx/1.4.7">Nginx/1.4.7</span></td> 
+        <td width="50%">操作系统： CentOS</td> 
+       </tr> 
+       <tr> 
+        <td height="33">JAVA版本号： 5.4.27</td> 
+        <td>GDLibrary： <span class="ture">支持</span></td> 
+       </tr> 
+       <tr> 
+        <td height="33">MySql版本： 5.50</td> 
+        <td height="28">ZEND支持： <span class="ture">支持</span></td> 
+       </tr> 
+       <tr class="nb"> 
+        <td colspan="2" height="33">支持上传的最大文件：64M</td> 
+       </tr> 
+      </tbody>
+     </table> 
+    </div> 
+   </div> 
+   <div class="rightArea"> 
+    <div class="homeEvent"> 
+     <h2 class="title">日志<span><a href="#">更多&gt;&gt;</a></span></h2> 
+     <ul> 
+      <li>05-18 10:44：用户 <strong>admin</strong> 进行了 <span class="blue">登录操作</span> </li> 
+      <li> 05-18 09:36：用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">goods</span> </li> 
+     </ul> 
+    </div> 
+    <div class="count"> 
+     <h2 class="title">统计<span><a href="#">更多&gt;&gt;</a></span></h2> 
+     <table border="0" cellpadding="0" cellspacing="0" width="100%"> 
+      <tbody>
+       <tr> 
+        <td width="80" height="33">注册用户数：</td> 
+        <td class="num">13</td> 
+       </tr> 
+       <tr> 
+        <td height="33">新增用户数：</td> 
+        <td class="num">5</td> 
+       </tr> 
+       <tr> 
+        <td height="33">在线预约数：</td> 
+        <td class="num">19</td> 
+       </tr> 
+       <tr> 
+        <td height="33">家装套餐数：</td> 
+        <td class="num">15</td> 
+       </tr> 
+       <tr class="nb"> 
+        <td height="33">直播栏目数：</td> 
+        <td class="num">1</td> 
+       </tr> 
+      </tbody>
+     </table> 
+    </div> 
+   </div> 
+   <div class="cl"></div> 
+  </div> 
+  <div class="homeTeam"> 
+   <h2 class="title">团队</h2> 
+   <ul> 
+    <li><strong>在线客服：</strong> <i>Feng</i> &middot; <i>Adu</i></li> 
+    <li><strong>家装导购：</strong> <i>奋斗</i> &middot; <i>老徐</i>&middot; <i>CHurricane</i> &middot; <i>火爆浪子</i> &middot; <i>老A</i> &middot; <i>麦子</i> &middot; <i>静望黄昏</i> &middot; <i>小学生</i></li> 
+    <li class="nb"><strong>订单处理：</strong> <i>兔饭饭</i> &middot; <i>游鱼</i> &middot; <i>螺丝钉</i> &middot; <i>薛</i> &middot; <i>风青云</i> &middot; <i>上杉达也</i> &middot; <i>Xyao</i> &middot; <i>Lucifer</i> &middot; <i>leaves</i> &middot; <i>Long</i></li> 
+    <div class="cl"></div> 
+   </ul> 
+  </div> 
+  <div class="homeNote"> 
+   <h2 class="title">记事</h2> 
+   <div class="notearea"> 
+    <textarea name="homeNote" id="homeNote">点击输入便签内容...</textarea> 
+   </div> 
+  </div> 
+  <div class="homeCopy">
+    敬请您将在使用中发现的问题或者不适提交给我们，以便改进 
+   <a href="mailto:scosun@163.com" target="_blank" class="feedback">点击提交反馈</a> | 
+   <a href="#" class="doc">开发帮助</a> 
+  </div> 
+ </body>
+</html>

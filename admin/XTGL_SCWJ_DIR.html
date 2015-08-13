@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>上传文件管理</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+</head>
+<body>
+<div class="topToolbar"> <span class="title">上传文件管理</span> <span class="text">[当前目录：<strong>/uploads/</strong><span>|</span><a href="javascript:;" class="topFolder">当前是根目录</a><span>|</span><a href="upload_filemgr_clear.php" class="clearFile">清理未使用文件</a>]</span> <a href="javascript:location.reload();" class="reload">刷新</a></div>
+<div class="toolbarTab">
+	<ul>
+		<li><a href="XTGL_SCWJ.html">数据模式</a></li>
+		<li class="line">-</li>
+		<li class="on"><a href="XTGL_SCWJ_DIR.html">目录模式</a></li>
+	</ul>
+</div>
+<form name="form" id="form" method="post" action="upload_filemgr_save.php">
+	<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" class="dataTable">
+		<tr align="left" class="head">
+			<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid" id="checkid" onclick="CheckAll(this.checked);" /></td>
+			<td width="30%">文件名称</td>
+			<td width="25%">上传日期</td>
+			<td width="25%">文件大小</td>
+			<td width="15%" class="endCol">操作</td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="soft" disabled="disabled" /></td>
+			<td><span class="isdir">soft</span></td>
+			<td class="number"><span>2014-12-28 13:50:28</span></td>
+			<td>1B</td>
+			<td class="action endCol"><span><a href="upload_filemgr_dir.php?dirname=uploads%2Fsoft%2F">进入</a></span> | <span class="nb">删除</span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="media" disabled="disabled" /></td>
+			<td><span class="isdir">media</span></td>
+			<td class="number"><span>2014-12-28 13:50:28</span></td>
+			<td>1B</td>
+			<td class="action endCol"><span><a href="upload_filemgr_dir.php?dirname=uploads%2Fmedia%2F">进入</a></span> | <span class="nb">删除</span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="image" disabled="disabled" /></td>
+			<td><span class="isdir">image</span></td>
+			<td class="number"><span>2015-06-30 14:30:09</span></td>
+			<td>25.16MB</td>
+			<td class="action endCol"><span><a href="upload_filemgr_dir.php?dirname=uploads%2Fimage%2F">进入</a></span> | <span class="nb">删除</span></td>
+		</tr>
+			</table>
+	<input type="hidden" name="dirname" id="dirname" value="uploads/" />
+</form>
+<div class="bottomToolbar"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAll('upload_filemgr_save.php','&mode=dir');" onclick="return ConfDelAll(0);">删除</a></span> </div>
+<div class="page"> <div class="pageText">共<span>3</span>条记录</div> </div>
+<div class="quickToolbar">
+	<div class="qiuckWarp">
+		<div class="quickArea"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAll('upload_filemgr_save.php','&mode=dir');" onclick="return ConfDelAll(0);">删除</a></span> <span class="pageSmall">
+			<div class="pageText">共有<span>3</span>条记录</div>
+			</span></div>
+		<div class="quickAreaBg"></div>
+	</div>
+</div>
+</body>
+</html>
