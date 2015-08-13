@@ -2,448 +2,398 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>上传文件管理</title>
+<title>数据库管理</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/forms.func.js"></script>
+<script type="text/javascript" src="assets/js/db.func.js"></script>
 </head>
 <body>
-<div class="topToolbar"> <span class="title">上传文件管理</span> <span class="text">[<a href="upload_filemgr_clear.php" class="clearFile">清理未使用文件</a>]</span> <a href="javascript:location.reload();" class="reload">刷新</a></div>
-
+<div class="topToolbar"> <span class="title">数据库管理</span> 
+	 <a href="javascript:location.reload();" class="reload">刷新</a></div>
 <div class="toolbarTab">
 	<ul>
-		<li class="on"><a href="XTGL_SCWJ.html">数据模式</a></li>
+		<li class="on"><a href="?action=export">数据库操作</a></li>
 		<li class="line">-</li>
-		<li><a href="XTGL_SCWJ_DIR.html">目录模式</a></li>
+		<li ><a href="?action=import">数据库还原</a></li>
+		<li class="line">-</li>
+		<li ><a href="?action=query">执行SQL语句</a></li>
 	</ul>
-	<div class="search">
-		<form name="search_f" id="search_f" method="get" action="">
-			<span class="s">
-			<input name="keyword" id="keyword" type="text" title="输入文件名进行搜索" value="" />
-			</span> <span class="b"><a href="javascript:;" onclick="search_f.submit();"></a></span>
-		</form>
-	</div>
 </div>
-<form name="form" id="form" method="post" action="">
-	<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" class="dataTable">
+
+<form name="form" id="form" method="post" action="?action=export">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
 		<tr align="left" class="head">
-			<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid" id="checkid" onclick="CheckAll(this.checked);" /></td>
-			<td width="25%">文件名称</td>
-			<td width="20%">文件类型</td>
-			<td width="20%">上传日期</td>
-			<td width="15%">文件大小</td>
+			<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkall" onclick="CheckAllBtn(form)" value="check" checked="checked" /></td>
+			<td width="30%">表名</td>
+			<td width="25%">记录数</td>
+			<td width="25%">数据大小[共882.71KB]</td>
 			<td width="15%" class="endCol">操作</td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150630/1435651077.png" /></td>
-			<td>1435651077.png</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-30 14:30:09</span></td>
-			<td>801.29KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150630/1435651077.png" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=157&path=uploads/image/20150630/1435651077.png" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_admanage" checked="checked" /></td>
+			<td>pky_admanage</td>
+			<td>0</td>
+			<td>132B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_admanage">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_admanage">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_admanage">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435399297.jpg" /></td>
-			<td>1435399297.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 15:51:14</span></td>
-			<td>193.27KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435399297.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=156&path=uploads/image/20150627/1435399297.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_admin" checked="checked" /></td>
+			<td>pky_admin</td>
+			<td>1</td>
+			<td>84B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_admin">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_admin">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_admin">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435399289.jpg" /></td>
-			<td>1435399289.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 15:41:18</span></td>
-			<td>176.91KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435399289.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=154&path=uploads/image/20150627/1435399289.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_admingroup" checked="checked" /></td>
+			<td>pky_admingroup</td>
+			<td>3</td>
+			<td>132B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_admingroup">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_admingroup">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_admingroup">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435391777.jpg" /></td>
-			<td>1435391777.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 15:29:32</span></td>
-			<td>176.91KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435391777.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=153&path=uploads/image/20150627/1435391777.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_adminnotes" checked="checked" /></td>
+			<td>pky_adminnotes</td>
+			<td>0</td>
+			<td>0B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_adminnotes">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_adminnotes">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_adminnotes">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435392625.jpg" /></td>
-			<td>1435392625.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 15:29:32</span></td>
-			<td>193.27KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435392625.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=152&path=uploads/image/20150627/1435392625.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_adminprivacy" checked="checked" /></td>
+			<td>pky_adminprivacy</td>
+			<td>126</td>
+			<td>2.98KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_adminprivacy">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_adminprivacy">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_adminprivacy">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435399052.jpg" /></td>
-			<td>1435399052.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 15:28:59</span></td>
-			<td>168.88KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435399052.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=151&path=uploads/image/20150627/1435399052.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_adtype" checked="checked" /></td>
+			<td>pky_adtype</td>
+			<td>2</td>
+			<td>72B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_adtype">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_adtype">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_adtype">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435397954.jpg" /></td>
-			<td>1435397954.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 15:28:59</span></td>
-			<td>107.59KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435397954.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=150&path=uploads/image/20150627/1435397954.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_cascade" checked="checked" /></td>
+			<td>pky_cascade</td>
+			<td>6</td>
+			<td>164B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_cascade">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_cascade">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_cascade">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435350359.jpg" /></td>
-			<td>1435350359.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:55:11</span></td>
-			<td>193.27KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435350359.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=149&path=uploads/image/20150627/1435350359.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_cascadedata" checked="checked" /></td>
+			<td>pky_cascadedata</td>
+			<td>3268</td>
+			<td>689.34KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_cascadedata">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_cascadedata">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_cascadedata">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348313.jpg" /></td>
-			<td>1435348313.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:55:09</span></td>
-			<td>190.08KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348313.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=148&path=uploads/image/20150627/1435348313.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_diyfield" checked="checked" /></td>
+			<td>pky_diyfield</td>
+			<td>5</td>
+			<td>872B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_diyfield">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_diyfield">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_diyfield">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435354623.jpg" /></td>
-			<td>1435354623.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:55:09</span></td>
-			<td>172.77KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435354623.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=147&path=uploads/image/20150627/1435354623.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_diymenu" checked="checked" /></td>
+			<td>pky_diymenu</td>
+			<td>0</td>
+			<td>0B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_diymenu">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_diymenu">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_diymenu">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435345083.jpg" /></td>
-			<td>1435345083.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:55:08</span></td>
-			<td>211.7KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435345083.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=146&path=uploads/image/20150627/1435345083.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_diymodel" checked="checked" /></td>
+			<td>pky_diymodel</td>
+			<td>1</td>
+			<td>148B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_diymodel">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_diymodel">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_diymodel">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344941.jpg" /></td>
-			<td>1435344941.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:54:36</span></td>
-			<td>157.69KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344941.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=145&path=uploads/image/20150627/1435344941.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_failedlogin" checked="checked" /></td>
+			<td>pky_failedlogin</td>
+			<td>0</td>
+			<td>284B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_failedlogin">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_failedlogin">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_failedlogin">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435353862.jpg" /></td>
-			<td>1435353862.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:54:35</span></td>
-			<td>142.18KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435353862.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=144&path=uploads/image/20150627/1435353862.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_fragment" checked="checked" /></td>
+			<td>pky_fragment</td>
+			<td>0</td>
+			<td>0B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_fragment">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_fragment">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_fragment">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348632.jpg" /></td>
-			<td>1435348632.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:54:34</span></td>
-			<td>168.88KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348632.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=143&path=uploads/image/20150627/1435348632.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_getmode" checked="checked" /></td>
+			<td>pky_getmode</td>
+			<td>2</td>
+			<td>48B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_getmode">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_getmode">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_getmode">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435349515.jpg" /></td>
-			<td>1435349515.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:54:34</span></td>
-			<td>107.59KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435349515.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=142&path=uploads/image/20150627/1435349515.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_goods" checked="checked" /></td>
+			<td>pky_goods</td>
+			<td>25</td>
+			<td>7.84KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_goods">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_goods">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_goods">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348788.jpg" /></td>
-			<td>1435348788.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:53:38</span></td>
-			<td>190.08KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348788.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=141&path=uploads/image/20150627/1435348788.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_goodsattr" checked="checked" /></td>
+			<td>pky_goodsattr</td>
+			<td>2</td>
+			<td>40B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_goodsattr">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_goodsattr">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_goodsattr">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435351561.jpg" /></td>
-			<td>1435351561.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:53:36</span></td>
-			<td>172.77KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435351561.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=140&path=uploads/image/20150627/1435351561.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_goodsbrand" checked="checked" /></td>
+			<td>pky_goodsbrand</td>
+			<td>1</td>
+			<td>32B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_goodsbrand">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_goodsbrand">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_goodsbrand">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348582.jpg" /></td>
-			<td>1435348582.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:53:35</span></td>
-			<td>211.7KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348582.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=139&path=uploads/image/20150627/1435348582.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_goodsflag" checked="checked" /></td>
+			<td>pky_goodsflag</td>
+			<td>5</td>
+			<td>100B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_goodsflag">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_goodsflag">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_goodsflag">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348650.jpg" /></td>
-			<td>1435348650.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:53:35</span></td>
-			<td>154.8KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348650.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=138&path=uploads/image/20150627/1435348650.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_goodsorder" checked="checked" /></td>
+			<td>pky_goodsorder</td>
+			<td>7</td>
+			<td>1.54KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_goodsorder">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_goodsorder">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_goodsorder">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435350052.jpg" /></td>
-			<td>1435350052.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:53:26</span></td>
-			<td>176.91KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435350052.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=137&path=uploads/image/20150627/1435350052.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_goodstype" checked="checked" /></td>
+			<td>pky_goodstype</td>
+			<td>7</td>
+			<td>920B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_goodstype">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_goodstype">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_goodstype">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348931.jpg" /></td>
-			<td>1435348931.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:53:14</span></td>
-			<td>190.08KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348931.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=136&path=uploads/image/20150627/1435348931.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_info" checked="checked" /></td>
+			<td>pky_info</td>
+			<td>5</td>
+			<td>6.79KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_info">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_info">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_info">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435354287.jpg" /></td>
-			<td>1435354287.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:53:13</span></td>
-			<td>172.77KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435354287.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=135&path=uploads/image/20150627/1435354287.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_infoclass" checked="checked" /></td>
+			<td>pky_infoclass</td>
+			<td>19</td>
+			<td>852B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_infoclass">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_infoclass">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_infoclass">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435345159.jpg" /></td>
-			<td>1435345159.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:53:10</span></td>
-			<td>154.8KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435345159.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=134&path=uploads/image/20150627/1435345159.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_infoflag" checked="checked" /></td>
+			<td>pky_infoflag</td>
+			<td>6</td>
+			<td>120B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_infoflag">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_infoflag">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_infoflag">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348564.jpg" /></td>
-			<td>1435348564.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:45:02</span></td>
-			<td>190.08KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348564.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=133&path=uploads/image/20150627/1435348564.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_infoimg" checked="checked" /></td>
+			<td>pky_infoimg</td>
+			<td>6</td>
+			<td>8.31KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_infoimg">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_infoimg">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_infoimg">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344729.jpg" /></td>
-			<td>1435344729.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:45:00</span></td>
-			<td>172.77KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344729.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=132&path=uploads/image/20150627/1435344729.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_infolist" checked="checked" /></td>
+			<td>pky_infolist</td>
+			<td>33</td>
+			<td>72.22KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_infolist">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_infolist">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_infolist">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435349829.jpg" /></td>
-			<td>1435349829.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:44:59</span></td>
-			<td>211.7KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435349829.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=131&path=uploads/image/20150627/1435349829.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_infosrc" checked="checked" /></td>
+			<td>pky_infosrc</td>
+			<td>0</td>
+			<td>0B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_infosrc">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_infosrc">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_infosrc">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435347137.jpg" /></td>
-			<td>1435347137.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:44:59</span></td>
-			<td>154.8KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435347137.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=130&path=uploads/image/20150627/1435347137.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_job" checked="checked" /></td>
+			<td>pky_job</td>
+			<td>0</td>
+			<td>5.2KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_job">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_job">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_job">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435353833.jpg" /></td>
-			<td>1435353833.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:44:48</span></td>
-			<td>168.88KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435353833.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=128&path=uploads/image/20150627/1435353833.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_live" checked="checked" /></td>
+			<td>pky_live</td>
+			<td>0</td>
+			<td>16KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_live">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_live">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_live">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435346991.jpg" /></td>
-			<td>1435346991.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:44:00</span></td>
-			<td>190.08KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435346991.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=125&path=uploads/image/20150627/1435346991.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_lnk" checked="checked" /></td>
+			<td>pky_lnk</td>
+			<td>4</td>
+			<td>252B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_lnk">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_lnk">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_lnk">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435352148.jpg" /></td>
-			<td>1435352148.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:43:58</span></td>
-			<td>172.77KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435352148.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=124&path=uploads/image/20150627/1435352148.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_maintype" checked="checked" /></td>
+			<td>pky_maintype</td>
+			<td>0</td>
+			<td>0B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_maintype">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_maintype">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_maintype">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435349588.jpg" /></td>
-			<td>1435349588.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:43:57</span></td>
-			<td>211.7KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435349588.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=123&path=uploads/image/20150627/1435349588.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_member" checked="checked" /></td>
+			<td>pky_member</td>
+			<td>7</td>
+			<td>1.38KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_member">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_member">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_member">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435347292.jpg" /></td>
-			<td>1435347292.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:43:56</span></td>
-			<td>154.8KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435347292.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=122&path=uploads/image/20150627/1435347292.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_message" checked="checked" /></td>
+			<td>pky_message</td>
+			<td>0</td>
+			<td>120B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_message">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_message">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_message">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435345066.jpg" /></td>
-			<td>1435345066.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:36:44</span></td>
-			<td>176.91KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435345066.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=121&path=uploads/image/20150627/1435345066.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_nav" checked="checked" /></td>
+			<td>pky_nav</td>
+			<td>14</td>
+			<td>812B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_nav">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_nav">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_nav">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435347599.jpg" /></td>
-			<td>1435347599.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:36:43</span></td>
-			<td>193.27KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435347599.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=120&path=uploads/image/20150627/1435347599.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_paymode" checked="checked" /></td>
+			<td>pky_paymode</td>
+			<td>2</td>
+			<td>48B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_paymode">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_paymode">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_paymode">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344759.jpg" /></td>
-			<td>1435344759.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:36:42</span></td>
-			<td>157.69KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344759.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=119&path=uploads/image/20150627/1435344759.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_postmode" checked="checked" /></td>
+			<td>pky_postmode</td>
+			<td>1</td>
+			<td>100B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_postmode">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_postmode">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_postmode">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435353237.jpg" /></td>
-			<td>1435353237.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:36:42</span></td>
-			<td>142.18KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435353237.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=118&path=uploads/image/20150627/1435353237.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_site" checked="checked" /></td>
+			<td>pky_site</td>
+			<td>1</td>
+			<td>32B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_site">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_site">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_site">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435350266.jpg" /></td>
-			<td>1435350266.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:36:33</span></td>
-			<td>190.08KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435350266.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=117&path=uploads/image/20150627/1435350266.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_soft" checked="checked" /></td>
+			<td>pky_soft</td>
+			<td>2</td>
+			<td>2.03KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_soft">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_soft">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_soft">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344104.jpg" /></td>
-			<td>1435344104.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:36:32</span></td>
-			<td>172.77KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344104.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=116&path=uploads/image/20150627/1435344104.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_sysevent" checked="checked" /></td>
+			<td>pky_sysevent</td>
+			<td>1015</td>
+			<td>48.13KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_sysevent">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_sysevent">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_sysevent">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435345503.jpg" /></td>
-			<td>1435345503.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:36:31</span></td>
-			<td>211.7KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435345503.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=115&path=uploads/image/20150627/1435345503.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_u_live" checked="checked" /></td>
+			<td>pky_u_live</td>
+			<td>0</td>
+			<td>0B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_u_live">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_u_live">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_u_live">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435353782.jpg" /></td>
-			<td>1435353782.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:36:30</span></td>
-			<td>154.8KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435353782.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=114&path=uploads/image/20150627/1435353782.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_uploads" checked="checked" /></td>
+			<td>pky_uploads</td>
+			<td>134</td>
+			<td>9.66KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_uploads">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_uploads">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_uploads">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344019.jpg" /></td>
-			<td>1435344019.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:35:34</span></td>
-			<td>157.69KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344019.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=113&path=uploads/image/20150627/1435344019.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_usercomment" checked="checked" /></td>
+			<td>pky_usercomment</td>
+			<td>10</td>
+			<td>1.21KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_usercomment">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_usercomment">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_usercomment">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435346959.jpg" /></td>
-			<td>1435346959.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:35:33</span></td>
-			<td>142.18KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435346959.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=112&path=uploads/image/20150627/1435346959.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_userfavorite" checked="checked" /></td>
+			<td>pky_userfavorite</td>
+			<td>0</td>
+			<td>316B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_userfavorite">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_userfavorite">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_userfavorite">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344154.jpg" /></td>
-			<td>1435344154.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:35:32</span></td>
-			<td>168.88KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344154.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=111&path=uploads/image/20150627/1435344154.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_usergroup" checked="checked" /></td>
+			<td>pky_usergroup</td>
+			<td>6</td>
+			<td>184B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_usergroup">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_usergroup">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_usergroup">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348517.jpg" /></td>
-			<td>1435348517.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:35:32</span></td>
-			<td>107.59KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348517.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=110&path=uploads/image/20150627/1435348517.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_vote" checked="checked" /></td>
+			<td>pky_vote</td>
+			<td>0</td>
+			<td>108B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_vote">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_vote">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_vote">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348429.jpg" /></td>
-			<td>1435348429.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:35:22</span></td>
-			<td>190.08KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348429.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=109&path=uploads/image/20150627/1435348429.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_votedata" checked="checked" /></td>
+			<td>pky_votedata</td>
+			<td>0</td>
+			<td>0B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_votedata">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_votedata">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_votedata">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435350094.jpg" /></td>
-			<td>1435350094.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:35:21</span></td>
-			<td>172.77KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435350094.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=108&path=uploads/image/20150627/1435350094.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_voteoption" checked="checked" /></td>
+			<td>pky_voteoption</td>
+			<td>4</td>
+			<td>92B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_voteoption">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_voteoption">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_voteoption">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348748.jpg" /></td>
-			<td>1435348748.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:35:20</span></td>
-			<td>211.7KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348748.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=107&path=uploads/image/20150627/1435348748.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_webconfig" checked="checked" /></td>
+			<td>pky_webconfig</td>
+			<td>58</td>
+			<td>3.81KB</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_webconfig">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_webconfig">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_webconfig">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435353448.jpg" /></td>
-			<td>1435353448.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:35:11</span></td>
-			<td>172.77KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435353448.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=106&path=uploads/image/20150627/1435353448.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_weblink" checked="checked" /></td>
+			<td>pky_weblink</td>
+			<td>0</td>
+			<td>332B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_weblink">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_weblink">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_weblink">优化</a></span></td>
 		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435345221.jpg" /></td>
-			<td>1435345221.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:28:34</span></td>
-			<td>157.69KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435345221.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=105&path=uploads/image/20150627/1435345221.jpg" onclick="return ConfDel(0);">删除</a></span></td>
-		</tr>
-				<tr align="left" class="dataTr">
-			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435351075.jpg" /></td>
-			<td>1435351075.jpg</td>
-			<td>image</td>
-			<td class="number"><span>2015-06-27 02:28:32</span></td>
-			<td>142.18KB</td>
-			<td class="action endCol"><span><a href="../uploads/image/20150627/1435351075.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=104&path=uploads/image/20150627/1435351075.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+				<tr align="left" class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'">
+			<td height="36" class="firstCol"><input type="checkbox" name="tbname[]" value="pky_weblinktype" checked="checked" /></td>
+			<td>pky_weblinktype</td>
+			<td>1</td>
+			<td>28B</td>
+			<td class="action endCol"><span><a href="?action=export&dopost=struct&tbname=pky_weblinktype">结构</a></span> | <span><a href="?action=export&dopost=repair&tbname=pky_weblinktype">修复</a></span> | <span class="nb"><a href="?action=export&dopost=optimize&tbname=pky_weblinktype">优化</a></span></td>
 		</tr>
 			</table>
+	<div class="bottomToolbar"> <span class="selArea"><span>选择：</span><a href="javascript:CheckAll(form,true);">全部</a> - <a href="javascript:CheckAll(form,false);">无</a> - <a href="#" onclick="Repair('?action=export&dopost=repair')">修复</a> - <a href="#" onclick="Repair('?action=export&dopost=optimize')">优化</a> </span> <a href="#" onclick="Repair('?action=export&dopost=backup')" class="dataBtn">开始备份数据</a> <span class="inputArea">备份表结构：
+		<input type="checkbox" name="isstruct" value="1" checked="checked" />
+		&nbsp;
+		分卷大小：
+		<input type="text" name="fsize" value="2048" size="5" style="text-indent:3px;" />
+		KB&nbsp; </span> </div>
 </form>
-<div class="bottomToolbar"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAll('upload_filemgr_save.php','&mode=sql');" onclick="return ConfDelAll(0);">删除</a></span> </div>
-<div class="page"> <div class="pageList"><a href="javascript:;">&lt;&lt;</a><a href="javascript:;">&lt;</a><a href="javascript:;" class="on">1</a><a href="?page=2" class="num">2</a><a href="?page=3" class="num">3</a><a href="?page=2">&gt;</a><a href="?page=3">&gt;&gt;</a></div> </div>
+<div class="page">
+	<div class="pageText">共有<span>49</span>个表</div>
+</div>
 <div class="quickToolbar">
 	<div class="qiuckWarp">
-		<div class="quickArea"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAll('upload_filemgr_save.php','&mode=sql');" onclick="return ConfDelAll(0);">删除</a></span> <span class="pageSmall">
-			<div class="pageList"><a href="javascript:;">&lt;&lt;</a><a href="javascript:;">&lt;</a><a href="javascript:;" class="on">1</a><a href="?page=2" class="num">2</a><a href="?page=3" class="num">3</a><a href="?page=2">&gt;</a><a href="?page=3">&gt;&gt;</a></div>			</span></div>
+		<div class="quickArea"><span class="selArea"><span>选择：</span><a href="javascript:CheckAll(form,true);">全部</a> - <a href="javascript:CheckAll(form,false);">无</a> - <a href="#" onclick="Repair('?action=export&dopost=repair')">修复</a> - <a href="#" onclick="Repair('?action=export&dopost=optimize')">优化</a> </span> <a href="#" onclick="Repair('?action=export&dopost=backup')" class="dataBtn">开始备份数据</a> <span class="inputArea">备份表结构：
+		<input type="checkbox" name="isstruct" value="1" checked="checked" />
+		&nbsp;
+		分卷大小：
+		<input type="text" name="fsize" value="2048" size="5" style="text-indent:3px;" />
+		KB&nbsp; </span><span class="pageSmall">
+			<div class="pageText">共有<span>49</span>个表</div>
+			</span></div>
 		<div class="quickAreaBg"></div>
 	</div>
 </div>
-</body>
-</html>
