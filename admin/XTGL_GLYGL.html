@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>管理员管理</title>
+	<link type="text/css" rel="stylesheet" href="assets/css/admin.css"/>
+	<link type="text/css" rel="stylesheet" href="assets/css/font-awesome.min.css"/> 
+</head>
+
+<body>
+
+<div class="topToolbar">
+	<span class="title">管理员列表</span>　
+	
+	<!--选择用户组-->
+	<span id="search">
+		<select>
+		<option value="">请选择用户组</option>
+		<option value="">超级管理员</option>
+		<option value="">管理员</option>
+		<option value="">编辑部</option>
+		<option value="">财务部</option>
+		<option value="">客服部</option>
+		<option value="">营销部</option>
+		<option value="">市场部</option>
+		</select>　
+	</span>	
+	<!--选择用户组-->
+	<span>
+		<input class="input iw" value="关键字搜索"> 
+		<a href="#" style="cursor:pointer"><i class="fa fa-search" style="color:#666;font-size:1.5em;line-height:1.5em"></i></a>
+	</span>
+	
+	<a href="javascript:location.reload();" class="reload">刷新</a>
+</div>
+
+<form name="form" id="form" method="post" action="member_save.php">
+	<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			
+			<!--标题列-->
+			<tr class="head" align="left">
+				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
+				<td width="5%"  style="cursor:pointer">ID　<i class="fa fa-sort" style="color:#ccc;font-size:1.2em;"></i></td>
+				<td width="">头像</td>
+				<td width="">用户名</td>
+				<td width=""  style="cursor:pointer">管理组　<i class="fa fa-sort-up" style="color:#666;font-size:1.2em;"></i></td>
+				<td width="">手机</td>
+				<td width=""  style="cursor:pointer">最后登录时间　<i class="fa fa-sort-down" style="color:#666;font-size:1.2em;"></i></td>
+				<td width="">IP</td>
+				<td class="endCol" width="150">操作</td>
+			</tr>
+			<!--标题列-->
+			
+			<!--列表循环模板-->
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td>1</td>
+				<td>
+					<span class="thumbs" style="width:48px;">
+						<!--img src="home_data/index.jpg" width="48" height="48"-->
+						<div style="width:48px;height:48px;background:#eee;line-height:48px;">logo</div>
+					</span>
+				</td>
+				<td>testuser</td>
+				<td>
+
+					<!--单行模板-->
+					<span style="color:">超级管理员</span>
+					<!--单行模板-->
+
+					<!--两行模板-->
+					<!--span style="color:">超级管理员</span>
+					<br><span class="red">认证用户</span-->
+					<!--两行模板-->
+
+				</td>
+				<td>13698626066</td>
+				<td class="number">
+					2012-10-22<br>
+					19:13:23
+				</td>
+				<td>127.0.0.1</td>
+				
+				<td class="action endCol">
+					<span>
+						<a href="#">已审</a></span> | <a href="XTGL_GLYGL_MOD.html">修改</a></span> | <span class="nb"><a href="#" onclick="return ConfDel(0)">删除</a>
+					</span>
+				</td>
+			</tr>
+			<!--列表循环模板-->
+			
+			<!--临时列表记录-->
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td>2</td>
+				<td>
+					<span class="thumbs" style="width:48px;">
+						<!--img src="home_data/index.jpg" width="48" height="48"-->
+						<div style="width:48px;height:48px;background:#eee;line-height:48px;">logo</div>
+					</span>
+				</td>
+				<td>testuser</td>
+				<td>
+					<span style="color:">超级管理员</span>
+				</td>
+				<td>13698626066</td>
+				<td class="number">
+					2012-10-22<br>
+					19:13:23
+				</td>
+				<td>127.0.0.1</td>
+				<td class="action endCol">
+					<span>
+						<a href="#">已审</a></span> | <a href="XTGL_GLYGL_MOD.html">修改</a></span> | <span class="nb"><a href="#" onclick="return ConfDel(0)">删除</a>
+					</span>
+				</td>
+			</tr>
+
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td>3</td>
+				<td>
+					<span class="thumbs" style="width:48px;">
+						<!--img src="home_data/index.jpg" width="48" height="48"-->
+						<div style="width:48px;height:48px;background:#eee;line-height:48px;">logo</div>
+					</span>
+				</td>
+				<td>testuser</td>
+				<td>
+					<span style="color:">超级管理员</span>
+				</td>
+				<td>13698626066</td>
+				<td class="number">
+					2012-10-22<br>
+					19:13:23
+				</td>
+				<td>127.0.0.1</td>
+				<td class="action endCol">
+					<span>
+						<a href="#">未审</a></span> | <a href="XTGL_GLYGL_MOD.html">修改</a></span> | <span class="nb"><a href="#" onclick="return ConfDel(0)">删除</a>
+					</span>
+				</td>
+			</tr>
+			
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td>4</td>
+				<td>
+					<span class="thumbs" style="width:48px;">
+						<!--img src="home_data/index.jpg" width="48" height="48"-->
+						<div style="width:48px;height:48px;background:#eee;line-height:48px;">logo</div>
+					</span>
+				</td>
+				<td>testuser</td>
+				<td>
+					<span style="color:">超级管理员</span>
+				</td>
+				<td>13698626066</td>
+				<td class="number">
+					2012-10-22<br>
+					19:13:23
+				</td>
+				<td>127.0.0.1</td>
+				<td class="action endCol">
+					<span>
+						<a href="#">已审</a></span> | <a href="XTGL_GLYGL_MOD.html">修改</a></span> | <span class="nb"><a href="#" onclick="return ConfDel(0)">删除</a>
+					</span>
+				</td>
+			</tr>
+
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td>5</td>
+				<td>
+					<span class="thumbs" style="width:48px;">
+						<!--img src="home_data/index.jpg" width="48" height="48"-->
+						<div style="width:48px;height:48px;background:#eee;line-height:48px;">logo</div>
+					</span>
+				</td>
+				<td>testuser</td>
+				<td>
+					<span style="color:">超级管理员</span>
+				</td>
+				<td>13698626066</td>
+				<td class="number">
+					2012-10-22<br>
+					19:13:23
+				</td>
+				<td>127.0.0.1</td>
+				<td class="action endCol">
+					<span>
+						<a href="#">已审</a></span> | <a href="XTGL_GLYGL_MOD.html">修改</a></span> | <span class="nb"><a href="#" onclick="return ConfDel(0)">删除</a>
+					</span>
+				</td>
+			</tr>	
+			
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td>6</td>
+				<td>
+					<span class="thumbs" style="width:48px;">
+						<!--img src="home_data/index.jpg" width="48" height="48"-->
+						<div style="width:48px;height:48px;background:#eee;line-height:48px;">logo</div>
+					</span>
+				</td>
+				<td>testuser</td>
+				<td>
+					<span style="color:">超级管理员</span>
+				</td>
+				<td>13698626066</td>
+				<td class="number">
+					2012-10-22<br>
+					19:13:23
+				</td>
+				<td>127.0.0.1</td>
+				<td class="action endCol">
+					<span>
+						<a href="#">已审</a></span> | <a href="XTGL_GLYGL_MOD.html">修改</a></span> | <span class="nb"><a href="#" onclick="return ConfDel(0)">删除</a>
+					</span>
+				</td>
+			</tr>			
+			
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td>7</td>
+				<td>
+					<span class="thumbs" style="width:48px;">
+						<!--img src="home_data/index.jpg" width="48" height="48"-->
+						<div style="width:48px;height:48px;background:#eee;line-height:48px;">logo</div>
+					</span>
+				</td>
+				<td>testuser</td>
+				<td>
+					<span style="color:">超级管理员</span>
+				</td>
+				<td>13698626066</td>
+				<td class="number">
+					2012-10-22<br>
+					19:13:23
+				</td>
+				<td>127.0.0.1</td>
+				<td class="action endCol">
+					<span>
+						<a href="#">已审</a></span> | <a href="XTGL_GLYGL_MOD.html">修改</a></span> | <span class="nb"><a href="#" onclick="return ConfDel(0)">删除</a>
+					</span>
+				</td>
+			</tr>	
+
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td>8</td>
+				<td>
+					<span class="thumbs" style="width:48px;">
+						<!--img src="home_data/index.jpg" width="48" height="48"-->
+						<div style="width:48px;height:48px;background:#eee;line-height:48px;">logo</div>
+					</span>
+				</td>
+				<td>testuser</td>
+				<td>
+					<span style="color:">超级管理员</span>
+				</td>
+				<td>13698626066</td>
+				<td class="number">
+					2012-10-22<br>
+					19:13:23
+				</td>
+				<td>127.0.0.1</td>
+				<td class="action endCol">
+					<span>
+						<a href="#">已审</a></span> | <a href="XTGL_GLYGL_MOD.html">修改</a></span> | <span class="nb"><a href="#" onclick="return ConfDel(0)">删除</a>
+					</span>
+				</td>
+			</tr>	
+			
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td>9</td>
+				<td>
+					<span class="thumbs" style="width:48px;">
+						<!--img src="home_data/index.jpg" width="48" height="48"-->
+						<div style="width:48px;height:48px;background:#eee;line-height:48px;">logo</div>
+					</span>
+				</td>
+				<td>testuser</td>
+				<td>
+					<span style="color:">超级管理员</span>
+				</td>
+				<td>13698626066</td>
+				<td class="number">
+					2012-10-22<br>
+					19:13:23
+				</td>
+				<td>127.0.0.1</td>
+				<td class="action endCol">
+					<span>
+						<a href="#">已审</a></span> | <a href="XTGL_GLYGL_MOD.html">修改</a></span> | <span class="nb"><a href="#" onclick="return ConfDel(0)">删除</a>
+					</span>
+				</td>
+			</tr>	
+			
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td>10</td>
+				<td>
+					<span class="thumbs" style="width:48px;">
+						<!--img src="home_data/index.jpg" width="48" height="48"-->
+						<div style="width:48px;height:48px;background:#eee;line-height:48px;">logo</div>
+					</span>
+				</td>
+				<td>testuser</td>
+				<td>
+					<span style="color:">超级管理员</span>
+				</td>
+				<td>13698626066</td>
+				<td class="number">
+					2012-10-22<br>
+					19:13:23
+				</td>
+				<td>127.0.0.1</td>
+				<td class="action endCol">
+					<span>
+						<a href="#">已审</a></span> | <a href="XTGL_GLYGL_MOD.html">修改</a></span> | <span class="nb"><a href="#" onclick="return ConfDel(0)">删除</a>
+					</span>
+				</td>
+			</tr>																								
+			<!--临时列表记录-->
+			
+		</tbody>
+	</table>
+</form>
+
+<div class="bottomToolbar">
+	<span class="selArea">
+		<span>选择：</span> 
+		<a href="javascript:CheckAll(true);">全部</a> - 
+		<a href="javascript:CheckAll(false);">无</a> - 
+		<a href="javascript:DelAllNone('member_save.php');" onclick="return ConfDelAll(0);">删除</a>
+	</span> 
+	<a href="XTGL_GLYGL_ADD.html" class="dataBtn">新增管理员</a> 
+</div>
+
+<div class="page"> 
+	<!--div class="pageText">
+		共<span>1</span>页<span>1</span>条记录
+	</div--> 
+	<div class="pageList">
+		<a href="javascript:;"><<</a>
+		<a href="javascript:;"><</a>
+		<a class="on" href="javascript:;">1</a>
+		<a class="num" href="?page=2">2</a>
+		<a class="num" href="?page=3">3</a>
+		<a href="?page=2">></a>
+		<a href="?page=3">>></a>
+	</div>	
+</div>
+
+<div class="quickToolbar">
+	<div class="qiuckWarp">
+		<div class="quickArea">
+			<span class="selArea">
+				<span>选择：</span> 
+				<a href="javascript:CheckAll(true);">全部</a> - 
+				<a href="javascript:CheckAll(false);">无</a> - 
+				<a href="javascript:DelAllNone('member_save.php');" onclick="return ConfDelAll(0);">删除</a>
+			</span> 
+			<a href="XTGL_GLYGL_ADD.html" class="dataBtn">新增管理员</a> 
+			<span class="pageSmall"> 
+				<!--记录小于20条pageText模板-->
+				<!--div class="pageText">  
+					共<span>1</span>页<span>1</span>条记录
+				</div-->
+				<!--记录小于20条pageText模板-->
+				
+				<!--记录大于20条pageList模板-->
+				<div class="pageList">
+					<a href="javascript:;"><<</a>
+					<a href="javascript:;"><</a>
+					<a class="on" href="javascript:;">1</a>
+					<a class="num" href="?page=2">2</a>
+					<a class="num" href="?page=3">3</a>
+					<a href="?page=2">></a>
+					<a href="?page=3">>></a>
+				</div>
+				<!--记录大于20条pageList模板-->
+			</span>
+		</div>
+		<div class="quickAreaBg"></div>
+	</div>
+</div>
+
+</body>
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+</html>
