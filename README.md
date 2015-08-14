@@ -15,7 +15,7 @@
 腾讯开放平台　[http://developer.baidu.com](http://developer.baidu.com)<br/>
 新浪开放平台　[http://developer.baidu.com](http://developer.baidu.com)<br/>
 
-### 需求文档
+### Wiki文档
 <hr/>
-接口描述　[»](http://developer.baidu.com)<br/>
-数据字典　[»](http://developer.baidu.com)<br/>
+接口描述　[»](https://github.com/kac8/Parkying/wiki/Home)<br/>
+数据字典　[»](https://github.com/kac8/Parkying/wiki/Database)<br/>
