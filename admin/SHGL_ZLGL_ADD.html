@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>注册新商户</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/checkf.js"></script>
+<script type="text/javascript" src="assets/js/getarea.js"></script>
+<script type="text/javascript">
+var xmlHttp;
+
+function xmlhttprequest(){
+	if(window.ActiveXObject){
+		xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+	}
+	else if(window.XMLHttpRequest){
+		xmlHttp = new XMLHttpRequest();
+	}
+	else{
+		alert('您的浏览器不支持Ajax技术！');
+	}
+}
+
+
+//用户名检测
+function CheckUser(){
+	if(document.form.username.value == ''){
+		document.getElementById('usernote').innerHTML = '　';
+	}
+	else{
+		if(document.form.username.value.length < 4){
+			document.getElementById('usernote').innerHTML = '<span class="regnotenok">用户名小于4位</span>';
+			return;
+		}
+		xmlhttprequest();
+		var username = document.getElementById('username').value;
+		var url = "ajax_do.php?"+parseInt(Math.random()*(15271)+1)+'&action=checkuser&username='+username;
+		xmlHttp.open("GET", url, true);
+		xmlHttp.onreadystatechange = check_done;
+		xmlHttp.send(null);
+	}
+}
+
+
+function check_done(){
+	if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+		document.getElementById('usernote').innerHTML = xmlHttp.responseText;
+		if('<span class="regnotenok">用户名已存在</span>' == xmlHttp.responseText){
+			document.getElementById('isuser').value = '0';
+		}
+		else{
+			document.getElementById('isuser').value = '';
+		}
+	}
+}
+</script>
+</head>
+<body>
+<div class="formHeader"> <span class="title">注册新商户</span> <a href="javascript:location.reload();" class="reload">刷新</a> </div>
+<form name="form" id="form" method="post" action="member_save.php" onsubmit="return cfm_member();">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="formTable">
+		<tr>
+			<td width="25%" height="40" align="right">用户名：</td>
+			<td width="75%"><input type="text" name="username" id="username" class="input" onblur="CheckUser();" />
+				<span class="maroon">*</span><span class="cnote">带<span class="maroon">*</span>号表示为必填项</span> <span id="usernote"></span>
+				<input type="hidden" id="isuser" name="isuser" value="" /></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">密　码：</td>
+			<td><input name="password" type="password" id="password" class="input" />
+				<span class="maroon">*</span></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">确　认： </td>
+			<td><input name="repassword" type="password" id="repassword" class="input" />
+				<span class="maroon">*</span></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">提　问： </td>
+			<td><select name="question" id="question">
+					<option value="0">无安全提问</option><option value="1">母亲的名字</option><option value="2">爷爷的名字</option><option value="3">父亲出生的城市</option><option value="4">你其中一位老师的名字</option><option value="5">你个人计算机的型号</option><option value="6">你最喜欢的餐馆名称</option><option value="7">驾驶执照最后四位数字</option>				</select></td>
+		</tr>
+		<tr class="nb">
+			<td height="40" align="right">回　答： </td>
+			<td><input type="text" name="answer" id="answer" class="input" /></td>
+		</tr>
+		<tr class="nb">
+			<td colspan="2" height="26"><div class="line"></div></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">姓　名：</td>
+			<td><input type="text" name="cnname" id="cnname" class="input" />
+				<span class="maroon">&nbsp;</span><span class="cnote">用户头像在前台编辑</span></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">英文名：</td>
+			<td><input type="text" name="enname" id="enname" class="input" /></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">性　别：</td>
+			<td><input name="sex" type="radio" value="0" checked="checked"  />
+				男&nbsp;
+				<input name="sex" type="radio" value="1"  />
+				女</td>
+		</tr>
+		<tr>
+			<td height="40" align="right">生　日：</td>
+			<td><label>
+					<input type="radio" name="birthtype" value="0" checked="checked" />
+					公历生日 </label>
+				<label>
+					<input type="radio" name="birthtype" value="1" />
+					农历生日</label></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">&nbsp;</td>
+			<td><select name="birth_year" id="birth_year">
+					<option value="-1">请选择</option>
+										<option value="2015">2015</option>
+										<option value="2014">2014</option>
+										<option value="2013">2013</option>
+										<option value="2012">2012</option>
+										<option value="2011">2011</option>
+										<option value="2010">2010</option>
+										<option value="2009">2009</option>
+										<option value="2008">2008</option>
+										<option value="2007">2007</option>
+										<option value="2006">2006</option>
+										<option value="2005">2005</option>
+										<option value="2004">2004</option>
+										<option value="2003">2003</option>
+										<option value="2002">2002</option>
+										<option value="2001">2001</option>
+										<option value="2000">2000</option>
+										<option value="1999">1999</option>
+										<option value="1998">1998</option>
+										<option value="1997">1997</option>
+										<option value="1996">1996</option>
+										<option value="1995">1995</option>
+										<option value="1994">1994</option>
+										<option value="1993">1993</option>
+										<option value="1992">1992</option>
+										<option value="1991">1991</option>
+										<option value="1990">1990</option>
+										<option value="1989">1989</option>
+										<option value="1988">1988</option>
+										<option value="1987">1987</option>
+										<option value="1986">1986</option>
+										<option value="1985">1985</option>
+										<option value="1984">1984</option>
+										<option value="1983">1983</option>
+										<option value="1982">1982</option>
+										<option value="1981">1981</option>
+										<option value="1980">1980</option>
+										<option value="1979">1979</option>
+										<option value="1978">1978</option>
+										<option value="1977">1977</option>
+										<option value="1976">1976</option>
+										<option value="1975">1975</option>
+										<option value="1974">1974</option>
+										<option value="1973">1973</option>
+										<option value="1972">1972</option>
+										<option value="1971">1971</option>
+										<option value="1970">1970</option>
+										<option value="1969">1969</option>
+										<option value="1968">1968</option>
+										<option value="1967">1967</option>
+										<option value="1966">1966</option>
+										<option value="1965">1965</option>
+										<option value="1964">1964</option>
+										<option value="1963">1963</option>
+										<option value="1962">1962</option>
+										<option value="1961">1961</option>
+										<option value="1960">1960</option>
+										<option value="1959">1959</option>
+										<option value="1958">1958</option>
+										<option value="1957">1957</option>
+										<option value="1956">1956</option>
+										<option value="1955">1955</option>
+										<option value="1954">1954</option>
+										<option value="1953">1953</option>
+										<option value="1952">1952</option>
+										<option value="1951">1951</option>
+										<option value="1950">1950</option>
+										<option value="1949">1949</option>
+										<option value="1948">1948</option>
+										<option value="1947">1947</option>
+										<option value="1946">1946</option>
+										<option value="1945">1945</option>
+										<option value="1944">1944</option>
+										<option value="1943">1943</option>
+										<option value="1942">1942</option>
+										<option value="1941">1941</option>
+										<option value="1940">1940</option>
+										<option value="1939">1939</option>
+										<option value="1938">1938</option>
+										<option value="1937">1937</option>
+										<option value="1936">1936</option>
+										<option value="1935">1935</option>
+										<option value="1934">1934</option>
+										<option value="1933">1933</option>
+										<option value="1932">1932</option>
+										<option value="1931">1931</option>
+										<option value="1930">1930</option>
+										<option value="1929">1929</option>
+										<option value="1928">1928</option>
+										<option value="1927">1927</option>
+										<option value="1926">1926</option>
+										<option value="1925">1925</option>
+										<option value="1924">1924</option>
+										<option value="1923">1923</option>
+										<option value="1922">1922</option>
+										<option value="1921">1921</option>
+										<option value="1920">1920</option>
+										<option value="1919">1919</option>
+										<option value="1918">1918</option>
+										<option value="1917">1917</option>
+										<option value="1916">1916</option>
+										<option value="1915">1915</option>
+										<option value="1914">1914</option>
+										<option value="1913">1913</option>
+										<option value="1912">1912</option>
+										<option value="1911">1911</option>
+										<option value="1910">1910</option>
+										<option value="1909">1909</option>
+										<option value="1908">1908</option>
+										<option value="1907">1907</option>
+										<option value="1906">1906</option>
+										<option value="1905">1905</option>
+										<option value="1904">1904</option>
+										<option value="1903">1903</option>
+										<option value="1902">1902</option>
+										<option value="1901">1901</option>
+										<option value="1900">1900</option>
+									</select>
+				年
+				<select name="birth_month" id="birth_month">
+					<option value="-1">--</option>
+										<option value="01">01</option>
+										<option value="02">02</option>
+										<option value="03">03</option>
+										<option value="04">04</option>
+										<option value="05">05</option>
+										<option value="06">06</option>
+										<option value="07">07</option>
+										<option value="08">08</option>
+										<option value="09">09</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+									</select>
+				月
+				<select name="birth_day" id="birth_day">
+					<option value="-1">--</option>
+										<option value="01">01</option>
+										<option value="02">02</option>
+										<option value="03">03</option>
+										<option value="04">04</option>
+										<option value="05">05</option>
+										<option value="06">06</option>
+										<option value="07">07</option>
+										<option value="08">08</option>
+										<option value="09">09</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+										<option value="19">19</option>
+										<option value="20">20</option>
+										<option value="21">21</option>
+										<option value="22">22</option>
+										<option value="23">23</option>
+										<option value="24">24</option>
+										<option value="25">25</option>
+										<option value="26">26</option>
+										<option value="27">27</option>
+										<option value="28">28</option>
+										<option value="29">29</option>
+										<option value="30">30</option>
+										<option value="31">31</option>
+									</select>
+				日</td>
+		</tr>
+		<tr>
+			<td height="40" align="right">星　座：</td>
+			<td><select name="astro" id="astro">
+					<option value="-1">请选择</option>
+					<option value="1">白羊座</option><option value="2">金牛座</option><option value="3">双子座</option><option value="4">巨蟹座</option><option value="5">狮子座</option><option value="6">处女座</option><option value="7">天枰座</option><option value="8">天蝎座</option><option value="9">射手座</option><option value="10">摩羯座</option><option value="11">水瓶座</option><option value="12">双鱼座</option>				</select></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">血　型：</td>
+			<td><select name="bloodtype" id="bloodtype">
+					<option value="-1">请选择</option>
+					<option value="1">A型</option><option value="2">B型</option><option value="3">O型</option><option value="4">AB型</option><option value="5">其他</option>				</select></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">行　业：</td>
+			<td><select name="trade" id="trade">
+					<option value="-1">请选择</option>
+					<option value="1">IT信息技术</option><option value="2">金融</option><option value="3">互联网</option><option value="4">广告传媒</option><option value="5">贸易零售</option><option value="6">交通物流</option><option value="7">房地产</option><option value="8">旅游餐饮</option><option value="9">加工制造业</option><option value="10">石化采掘</option><option value="11">农林牧渔</option><option value="12">社会服务</option><option value="13">医药生物</option><option value="14">教育培训科研</option>				</select></td>
+		</tr>
+		<tr>
+			<td height="40" align="right"> 现居地：</td>
+			<td id="live"><select name="live_prov" id="live_prov" onchange="SelProv(this.value,'live');">
+					<option value="-1">请选择</option>
+					<option value="1000">北京市</option><option value="1500">天津市</option><option value="2000">河北省</option><option value="2500">山西省</option><option value="3000">内蒙古自治区</option><option value="3500">辽宁省</option><option value="4000">吉林省</option><option value="4500">黑龙江省</option><option value="5000">上海市</option><option value="5500">江苏省</option><option value="6000">浙江省</option><option value="6500">安徽省</option><option value="7000">福建省</option><option value="7500">江西省</option><option value="8000">山东省</option><option value="8500">河南省</option><option value="9000">湖北省</option><option value="9500">湖南省</option><option value="10000">广东省</option><option value="10500">广西壮族自治区</option><option value="11000">海南省</option><option value="11500">重庆市</option><option value="12000">四川省</option><option value="12500">贵州省</option><option value="13000">云南省</option><option value="13500">西藏自治区</option><option value="14000">陕西省</option><option value="14500">甘肃省</option><option value="15000">青海省</option><option value="15500">宁夏回族自治区</option><option value="16000">新疆维吾尔自治区</option><option value="16500">台湾省</option><option value="17000">香港特别行政区</option><option value="17500">澳门特别行政区</option>				</select>
+				<select name="live_city" id="live_city" onchange="SelCity(this.value,'live');">
+					<option value="-1">--</option>
+				</select>
+				<select name="live_country" id="live_country">
+					<option value="-1">--</option>
+				</select></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">家　乡：</td>
+			<td id="home"><select name="home_prov" id="home_prov" onchange="SelProv(this.value,'home');">
+					<option value="-1">请选择</option>
+					<option value="1000">北京市</option><option value="1500">天津市</option><option value="2000">河北省</option><option value="2500">山西省</option><option value="3000">内蒙古自治区</option><option value="3500">辽宁省</option><option value="4000">吉林省</option><option value="4500">黑龙江省</option><option value="5000">上海市</option><option value="5500">江苏省</option><option value="6000">浙江省</option><option value="6500">安徽省</option><option value="7000">福建省</option><option value="7500">江西省</option><option value="8000">山东省</option><option value="8500">河南省</option><option value="9000">湖北省</option><option value="9500">湖南省</option><option value="10000">广东省</option><option value="10500">广西壮族自治区</option><option value="11000">海南省</option><option value="11500">重庆市</option><option value="12000">四川省</option><option value="12500">贵州省</option><option value="13000">云南省</option><option value="13500">西藏自治区</option><option value="14000">陕西省</option><option value="14500">甘肃省</option><option value="15000">青海省</option><option value="15500">宁夏回族自治区</option><option value="16000">新疆维吾尔自治区</option><option value="16500">台湾省</option><option value="17000">香港特别行政区</option><option value="17500">澳门特别行政区</option>				</select>
+				<select name="home_city" id="home_city" onchange="SelCity(this.value,'home');">
+					<option value="-1">--</option>
+				</select>
+				<select name="home_country" id="home_country">
+					<option value="-1">--</option>
+				</select></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">证件号码：</td>
+			<td><select name="cardtype" id="cardtype">
+					<option value="-1">请选择</option>
+					<option value="1">身份证</option><option value="2">护照</option><option value="3">驾驶证</option>				</select>
+				<input type="text" name="cardnum" id="cardnum" class="input" style="width:209px" /></td>
+		</tr>
+		<tr class="nb">
+			<td height="116" align="right">个人说明：</td>
+			<td><textarea name="intro" id="intro" class="textarea"></textarea></td>
+		</tr>
+		<tr class="nb">
+			<td colspan="2" height="26"><div class="line"></div></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">E-mail：</td>
+			<td><input type="text" name="email" id="email" class="input" /></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">QQ号码：</td>
+			<td><input type="text" name="qqnum" id="qqnum" class="input" /></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">手　机：</td>
+			<td><input type="text" name="mobile" id="mobile" class="input" /></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">固定电话：</td>
+			<td><input type="text" name="telephone" id="telephone" class="input" /></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">通信地址：</td>
+			<td><select name="address_prov" id="address_prov" onchange="SelProv(this.value,'address');">
+					<option value="-1">请选择</option>
+					<option value="1000">北京市</option><option value="1500">天津市</option><option value="2000">河北省</option><option value="2500">山西省</option><option value="3000">内蒙古自治区</option><option value="3500">辽宁省</option><option value="4000">吉林省</option><option value="4500">黑龙江省</option><option value="5000">上海市</option><option value="5500">江苏省</option><option value="6000">浙江省</option><option value="6500">安徽省</option><option value="7000">福建省</option><option value="7500">江西省</option><option value="8000">山东省</option><option value="8500">河南省</option><option value="9000">湖北省</option><option value="9500">湖南省</option><option value="10000">广东省</option><option value="10500">广西壮族自治区</option><option value="11000">海南省</option><option value="11500">重庆市</option><option value="12000">四川省</option><option value="12500">贵州省</option><option value="13000">云南省</option><option value="13500">西藏自治区</option><option value="14000">陕西省</option><option value="14500">甘肃省</option><option value="15000">青海省</option><option value="15500">宁夏回族自治区</option><option value="16000">新疆维吾尔自治区</option><option value="16500">台湾省</option><option value="17000">香港特别行政区</option><option value="17500">澳门特别行政区</option>				</select>
+				<select name="address_city" id="address_city" onchange="SelCity(this.value,'address');">
+					<option value="-1">--</option>
+				</select>
+				<select name="address_country" id="address_country">
+					<option value="-1">--</option>
+				</select></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">&nbsp;</td>
+			<td><input type="text" name="address" id="address" class="input" /></td>
+		</tr>
+		<tr class="nb">
+			<td height="40" align="right">邮　编：</td>
+			<td><input type="text" name="zipcode" id="zipcode" class="input" /></td>
+		</tr>
+		<tr class="nb">
+			<td colspan="2" height="26"><div class="line"></div></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">认证用户：</td>
+			<td><input type="checkbox" name="enteruser" id="enteruser" value="1" />
+				是</td>
+		</tr>
+		<tr>
+			<td height="40" align="right">经验值：</td>
+			<td><input type="text" name="expval" id="expval" class="input" value="10" />
+				<span class="maroon">&nbsp;</span><span class="cnote">通过调整经验值改变用户组</span></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">积　分：</td>
+			<td><input type="text" name="integral" id="integral" class="input" value="0" /></td>
+		</tr>
+		<tr class="nb">
+			<td height="40" align="right">注册时间：</td>
+			<td><input type="text" name="regtime" id="regtime" class="inputms" value="2015-08-14 12:06:57" readonly="readonly" />
+				<script type="text/javascript" src="plugin/calendar/calendar.js"></script> 
+				<script type="text/javascript">
+				Calendar.setup({
+					inputField     :    "regtime",
+					ifFormat       :    "%Y-%m-%d %H:%M:%S",
+					showsTime      :    true,
+					timeFormat     :    "24"
+				});
+				</script></td>
+		</tr>
+	</table>
+	<div class="formSubBtn">
+		<input type="submit" class="submit" value="提交" />
+		<input type="button" class="back" value="返回" onclick="history.go(-1);" />
+		<input type="hidden" name="action" id="action" value="add" />
+	</div>
+</form>
+</body>
+</html>

@@ -41,7 +41,7 @@
 				<td width="20%" align="center"><a href="goodstype_save.php?action=up&id=31&parentid=0&orderid=2" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="2" />
 					<a href="goodstype_save.php?action=down&id=31&parentid=0&orderid=2" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="goodstype_add.php?id=31">添加子类别</a></span> | <span><a href="goodsattr.php?gid=31">属性管理</a></span> | <span><a href="goodstype_save.php?id=31&action=check&checkinfo=true" title="点击进行显示与隐藏操作">隐藏</a></span> | <span><a href="goodstype_update.php?id=31">修改</a></span> | <span class="nb"><a href="goodstype_save.php?action=del&id=31" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="goodstype_add.php?id=31">添加子类别</a></span> | <span><a href="goodsattr.php?gid=31">属性管理</a></span> | <span><a href="goodstype_save.php?id=31&action=check&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="goodstype_update.php?id=31">修改</a></span> | <span class="nb"><a href="goodstype_save.php?action=del&id=31" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>

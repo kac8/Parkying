@@ -23,7 +23,8 @@
 
 ### Wiki文档
 <hr/>
-接口描述　[»](https://github.com/kac8/Parkying/wiki/Home)<br/>
+功能描述　[»](https://github.com/kac8/Parkying/wiki/Home)<br/>
+接口描述　[»](https://github.com/kac8/Parkying/wiki/Interface)<br/>
 数据字典　[»](https://github.com/kac8/Parkying/wiki/Database)<br/>
 
 ### 团队成员空缺招募
