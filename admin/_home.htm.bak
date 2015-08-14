@@ -99,23 +99,23 @@ $(function(){
       <tbody>
        <tr> 
         <td width="80" height="33">注册会员数：</td> 
-        <td class="num">13</td> 
+        <td class="num green">13</td> 
        </tr> 
        <tr> 
         <td height="33">注册商户数：</td> 
-        <td class="num">5</td> 
+        <td class="num green">5</td> 
        </tr> 
        <tr> 
         <td height="33">新增订单数：</td> 
-        <td class="num">19</td> 
+        <td class="num green">19</td> 
        </tr> 
        <tr> 
         <td height="33">车位发布数：</td> 
-        <td class="num">15</td> 
+        <td class="num green">15</td> 
        </tr> 
        <tr class="nb"> 
         <td height="33">车位成交数：</td> 
-        <td class="num">1</td> 
+        <td class="num green">1</td> 
        </tr> 
       </tbody>
      </table> 

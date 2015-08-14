@@ -51,7 +51,6 @@
 						<a href="XTGL_PZXX.html" target="main"><span class="subType_leftmenu"></span>网站配置管理</a> 
 						<a href="XTGL_SCWJ.html" target="main"><span class="subType_leftmenu"></span>上传文件管理</a>
 						<a href="XTGL_SJK.html" target="main"><span class="subType_leftmenu"></span>数据库管理</a>
-						<a href="XTGL_SEO.html" target="main"><span class="subType_leftmenu"></span>SEO优化管理</a>
 						<a href="XTGL_RZGL.html" target="main"><span class="subType_leftmenu"></span>日志管理</a>
 						
 						<!--右侧补充设置s1-10-->
@@ -126,11 +125,11 @@
 				<div class="menubox">
 					<div class="title" onclick="DisplayMenu('leftmenu07');" title="点击切换显示或隐藏"> 【07】文章管理 </div>
 					<div id="leftmenu07" style="display:none"> 
-						<a href="WZGL_.html" target="main"><span class="subType_leftmenu"></span>栏目管理</a> 
-						<a href="WZGL_.html" target="main"><span class="subType_leftmenu"></span>文章管理</a> 
-						<a href="WZGL_.html" target="main"><span class="subType_leftmenu"></span>图片管理</a> 
-						<a href="WZGL_.html" target="main"><span class="subType_leftmenu"></span>单页管理</a>
-						<a href="WZGL_.html" target="main"><span class="subType_leftmenu"></span>专题管理</a> 
+						<a href="WZGL_LM.html" target="main"><span class="subType_leftmenu"></span>栏目管理</a> 
+						<a href="WZGL_WZ.html" target="main"><span class="subType_leftmenu"></span>文章管理</a> 
+						<a href="WZGL_TP.html" target="main"><span class="subType_leftmenu"></span>图片管理</a> 
+						<a href="WZGL_DY.html" target="main"><span class="subType_leftmenu"></span>单页管理</a>
+						<a href="WZGL_ZT.html" target="main"><span class="subType_leftmenu"></span>专题管理</a> 
 					</div>
 				</div>		
 				<div class="hr_5"></div>
