@@ -2,36 +2,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>数据库管理</title>
+<title>收藏管理</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/forms.func.js"></script>
-<script type="text/javascript" src="assets/js/db.func.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
 </head>
 <body>
-<div class="topToolbar"> <span class="title">数据库管理</span> 
-	 <a href="javascript:location.reload();" class="reload">刷新</a></div>
-<div class="toolbarTab">
-	<ul>
-		<li ><a href="XTGL_SJK.html">数据库操作</a></li>
-		<li class="line">-</li>
-		<li ><a href="XTGL_SJK_HY.html">数据库还原</a></li>
-		<li class="line">-</li>
-		<li class="on"><a href="XTGL_SJK_SQL.html">执行SQL语句</a></li>
-	</ul>
-</div>
-
-<form name="form" id="form" method="post" action="?action=query">
+<div class="topToolbar"> <span class="title">收藏管理</span> <a href="javascript:location.reload();" class="reload">刷新</a></div>
+<form name="form" id="form" method="post" action="">
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
-		<tr class="dataTr">
-			<td align="center" valign="middle" class="textAreaBox"><textarea name="sqlquery"></textarea></td>
+		<tr align="left" class="head">
+			<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid" id="checkid" onclick="CheckAll(this.checked);" /></td>
+			<td width="4%">ID</td>
+			<td width="5%">UID</td>
+			<td width="10%">用户名</td>
+			<td width="30%">文章标题</td>
+			<td width="8%">模型ID</td>
+			<td width="8%">信息ID</td>
+			<td width="10%">时间</td>
+			<td width="10%">IP</td>
+			<td width="10%" class="endCol">操作</td>
 		</tr>
-	</table>
-	<div class="bottomToolbar"> <span class="selArea">
-		<input value="0" type="radio" name="querytype" />
-		单行命令（支持简单查询）
-		<input value="2" checked="checked" type="radio" name="querytype" />
-		多行命令 </span>
-		<input type="hidden" name="dopost" value="runsql" />
-		<a href="#" onclick="form.submit();" class="dataBtn">执行语句</a> </div>
+			</table>
 </form>
+<div class="dataEmpty">暂时没有相关的记录</div><div class="bottomToolbar"><span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAllNone('userfavorite_save.php');" onclick="return ConfDelAll(0);">删除</a></span></div>
+<div class="page"> <div class="pageText">共<span>0</span>页<span>0</span>条记录</div> </div>
+<div class="quickToolbar">
+	<div class="qiuckWarp">
+		<div class="quickArea"><span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAllNone('userfavorite_save.php');" onclick="return ConfDelAll(0);">删除</a></span><span class="pageSmall">
+			<div class="pageText">共<span>0</span>页<span>0</span>条记录</div>			</span></div>
+		<div class="quickAreaBg"></div>
+	</div>
+</div>
+</body>
+</html>
