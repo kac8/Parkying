@@ -9,11 +9,12 @@
 
 ### 第三方开放平台
 <hr/>
-百度开放平台　[http://developer.baidu.com](http://developer.baidu.com)<br/>
-微信开放平台　[http://developer.baidu.com](http://developer.baidu.com)<br/>
-微信公众平台　[http://developer.baidu.com](http://developer.baidu.com)<br/>
-腾讯开放平台　[http://developer.baidu.com](http://developer.baidu.com)<br/>
-新浪开放平台　[http://developer.baidu.com](http://developer.baidu.com)<br/>
+百度开放平台　　[http://developer.baidu.com](http://developer.baidu.com)<br/>
+微信开放平台　　[http://open.weixin.qq.com](http://open.weixin.qq.com)<br/>
+微信公众平台　　[http://mp.weixin.qq.com](http://mp.weixin.qq.com)<br/>
+腾讯开放平台　　[http://open.qq.com](http://open.qq.com)<br/>
+新浪开放平台　　[http://open.weibo.com](http://open.weibo.com)<br/>
+容联云通讯平台　[http://www.yuntongxun.com](http://www.yuntongxun.com)<br/>
 
 ### Wiki文档
 <hr/>
