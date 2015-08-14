@@ -10,7 +10,11 @@
 ### 第三方开放平台
 
 [百度开放平台](http://developer.baidu.com)
+
 [微信开放平台](http://developer.baidu.com)
+
 [微信公众平台](http://developer.baidu.com)
+
 [腾讯开放平台](http://developer.baidu.com)
+
 [新浪开放平台](http://developer.baidu.com)
