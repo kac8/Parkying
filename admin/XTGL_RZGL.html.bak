@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>上传文件管理</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+</head>
+<body>
+<div class="topToolbar"> <span class="title">上传文件管理</span> <span class="text">[<a href="upload_filemgr_clear.php" class="clearFile">清理未使用文件</a>]</span> <a href="javascript:location.reload();" class="reload">刷新</a></div>
+
+<div class="toolbarTab">
+	<ul>
+		<li class="on"><a href="XTGL_SCWJ.html">数据模式</a></li>
+		<li class="line">-</li>
+		<li><a href="XTGL_SCWJ_DIR.html">目录模式</a></li>
+	</ul>
+	<div class="search">
+		<form name="search_f" id="search_f" method="get" action="">
+			<span class="s">
+			<input name="keyword" id="keyword" type="text" title="输入文件名进行搜索" value="" />
+			</span> <span class="b"><a href="javascript:;" onclick="search_f.submit();"></a></span>
+		</form>
+	</div>
+</div>
+<form name="form" id="form" method="post" action="">
+	<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" class="dataTable">
+		<tr align="left" class="head">
+			<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid" id="checkid" onclick="CheckAll(this.checked);" /></td>
+			<td width="25%">文件名称</td>
+			<td width="20%">文件类型</td>
+			<td width="20%">上传日期</td>
+			<td width="15%">文件大小</td>
+			<td width="15%" class="endCol">操作</td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150630/1435651077.png" /></td>
+			<td>1435651077.png</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-30 14:30:09</span></td>
+			<td>801.29KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150630/1435651077.png" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=157&path=uploads/image/20150630/1435651077.png" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435399297.jpg" /></td>
+			<td>1435399297.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 15:51:14</span></td>
+			<td>193.27KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435399297.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=156&path=uploads/image/20150627/1435399297.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435399289.jpg" /></td>
+			<td>1435399289.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 15:41:18</span></td>
+			<td>176.91KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435399289.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=154&path=uploads/image/20150627/1435399289.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435391777.jpg" /></td>
+			<td>1435391777.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 15:29:32</span></td>
+			<td>176.91KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435391777.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=153&path=uploads/image/20150627/1435391777.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435392625.jpg" /></td>
+			<td>1435392625.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 15:29:32</span></td>
+			<td>193.27KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435392625.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=152&path=uploads/image/20150627/1435392625.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435399052.jpg" /></td>
+			<td>1435399052.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 15:28:59</span></td>
+			<td>168.88KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435399052.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=151&path=uploads/image/20150627/1435399052.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435397954.jpg" /></td>
+			<td>1435397954.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 15:28:59</span></td>
+			<td>107.59KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435397954.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=150&path=uploads/image/20150627/1435397954.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435350359.jpg" /></td>
+			<td>1435350359.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:55:11</span></td>
+			<td>193.27KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435350359.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=149&path=uploads/image/20150627/1435350359.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348313.jpg" /></td>
+			<td>1435348313.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:55:09</span></td>
+			<td>190.08KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348313.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=148&path=uploads/image/20150627/1435348313.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435354623.jpg" /></td>
+			<td>1435354623.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:55:09</span></td>
+			<td>172.77KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435354623.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=147&path=uploads/image/20150627/1435354623.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435345083.jpg" /></td>
+			<td>1435345083.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:55:08</span></td>
+			<td>211.7KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435345083.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=146&path=uploads/image/20150627/1435345083.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344941.jpg" /></td>
+			<td>1435344941.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:54:36</span></td>
+			<td>157.69KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344941.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=145&path=uploads/image/20150627/1435344941.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435353862.jpg" /></td>
+			<td>1435353862.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:54:35</span></td>
+			<td>142.18KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435353862.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=144&path=uploads/image/20150627/1435353862.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348632.jpg" /></td>
+			<td>1435348632.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:54:34</span></td>
+			<td>168.88KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348632.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=143&path=uploads/image/20150627/1435348632.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435349515.jpg" /></td>
+			<td>1435349515.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:54:34</span></td>
+			<td>107.59KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435349515.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=142&path=uploads/image/20150627/1435349515.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348788.jpg" /></td>
+			<td>1435348788.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:53:38</span></td>
+			<td>190.08KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348788.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=141&path=uploads/image/20150627/1435348788.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435351561.jpg" /></td>
+			<td>1435351561.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:53:36</span></td>
+			<td>172.77KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435351561.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=140&path=uploads/image/20150627/1435351561.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348582.jpg" /></td>
+			<td>1435348582.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:53:35</span></td>
+			<td>211.7KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348582.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=139&path=uploads/image/20150627/1435348582.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348650.jpg" /></td>
+			<td>1435348650.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:53:35</span></td>
+			<td>154.8KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348650.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=138&path=uploads/image/20150627/1435348650.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435350052.jpg" /></td>
+			<td>1435350052.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:53:26</span></td>
+			<td>176.91KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435350052.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=137&path=uploads/image/20150627/1435350052.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348931.jpg" /></td>
+			<td>1435348931.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:53:14</span></td>
+			<td>190.08KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348931.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=136&path=uploads/image/20150627/1435348931.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435354287.jpg" /></td>
+			<td>1435354287.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:53:13</span></td>
+			<td>172.77KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435354287.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=135&path=uploads/image/20150627/1435354287.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435345159.jpg" /></td>
+			<td>1435345159.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:53:10</span></td>
+			<td>154.8KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435345159.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=134&path=uploads/image/20150627/1435345159.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348564.jpg" /></td>
+			<td>1435348564.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:45:02</span></td>
+			<td>190.08KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348564.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=133&path=uploads/image/20150627/1435348564.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344729.jpg" /></td>
+			<td>1435344729.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:45:00</span></td>
+			<td>172.77KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344729.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=132&path=uploads/image/20150627/1435344729.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435349829.jpg" /></td>
+			<td>1435349829.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:44:59</span></td>
+			<td>211.7KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435349829.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=131&path=uploads/image/20150627/1435349829.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435347137.jpg" /></td>
+			<td>1435347137.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:44:59</span></td>
+			<td>154.8KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435347137.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=130&path=uploads/image/20150627/1435347137.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435353833.jpg" /></td>
+			<td>1435353833.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:44:48</span></td>
+			<td>168.88KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435353833.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=128&path=uploads/image/20150627/1435353833.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435346991.jpg" /></td>
+			<td>1435346991.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:44:00</span></td>
+			<td>190.08KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435346991.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=125&path=uploads/image/20150627/1435346991.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435352148.jpg" /></td>
+			<td>1435352148.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:43:58</span></td>
+			<td>172.77KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435352148.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=124&path=uploads/image/20150627/1435352148.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435349588.jpg" /></td>
+			<td>1435349588.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:43:57</span></td>
+			<td>211.7KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435349588.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=123&path=uploads/image/20150627/1435349588.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435347292.jpg" /></td>
+			<td>1435347292.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:43:56</span></td>
+			<td>154.8KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435347292.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=122&path=uploads/image/20150627/1435347292.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435345066.jpg" /></td>
+			<td>1435345066.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:36:44</span></td>
+			<td>176.91KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435345066.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=121&path=uploads/image/20150627/1435345066.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435347599.jpg" /></td>
+			<td>1435347599.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:36:43</span></td>
+			<td>193.27KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435347599.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=120&path=uploads/image/20150627/1435347599.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344759.jpg" /></td>
+			<td>1435344759.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:36:42</span></td>
+			<td>157.69KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344759.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=119&path=uploads/image/20150627/1435344759.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435353237.jpg" /></td>
+			<td>1435353237.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:36:42</span></td>
+			<td>142.18KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435353237.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=118&path=uploads/image/20150627/1435353237.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435350266.jpg" /></td>
+			<td>1435350266.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:36:33</span></td>
+			<td>190.08KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435350266.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=117&path=uploads/image/20150627/1435350266.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344104.jpg" /></td>
+			<td>1435344104.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:36:32</span></td>
+			<td>172.77KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344104.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=116&path=uploads/image/20150627/1435344104.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435345503.jpg" /></td>
+			<td>1435345503.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:36:31</span></td>
+			<td>211.7KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435345503.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=115&path=uploads/image/20150627/1435345503.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435353782.jpg" /></td>
+			<td>1435353782.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:36:30</span></td>
+			<td>154.8KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435353782.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=114&path=uploads/image/20150627/1435353782.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344019.jpg" /></td>
+			<td>1435344019.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:35:34</span></td>
+			<td>157.69KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344019.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=113&path=uploads/image/20150627/1435344019.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435346959.jpg" /></td>
+			<td>1435346959.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:35:33</span></td>
+			<td>142.18KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435346959.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=112&path=uploads/image/20150627/1435346959.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435344154.jpg" /></td>
+			<td>1435344154.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:35:32</span></td>
+			<td>168.88KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435344154.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=111&path=uploads/image/20150627/1435344154.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348517.jpg" /></td>
+			<td>1435348517.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:35:32</span></td>
+			<td>107.59KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348517.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=110&path=uploads/image/20150627/1435348517.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348429.jpg" /></td>
+			<td>1435348429.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:35:22</span></td>
+			<td>190.08KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348429.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=109&path=uploads/image/20150627/1435348429.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435350094.jpg" /></td>
+			<td>1435350094.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:35:21</span></td>
+			<td>172.77KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435350094.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=108&path=uploads/image/20150627/1435350094.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435348748.jpg" /></td>
+			<td>1435348748.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:35:20</span></td>
+			<td>211.7KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435348748.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=107&path=uploads/image/20150627/1435348748.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435353448.jpg" /></td>
+			<td>1435353448.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:35:11</span></td>
+			<td>172.77KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435353448.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=106&path=uploads/image/20150627/1435353448.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435345221.jpg" /></td>
+			<td>1435345221.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:28:34</span></td>
+			<td>157.69KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435345221.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=105&path=uploads/image/20150627/1435345221.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="uploads/image/20150627/1435351075.jpg" /></td>
+			<td>1435351075.jpg</td>
+			<td>image</td>
+			<td class="number"><span>2015-06-27 02:28:32</span></td>
+			<td>142.18KB</td>
+			<td class="action endCol"><span><a href="../uploads/image/20150627/1435351075.jpg" target="_blank">预览</a></span> | <span class="nb"><a href="upload_filemgr_save.php?mode=sql&action=del&id=104&path=uploads/image/20150627/1435351075.jpg" onclick="return ConfDel(0);">删除</a></span></td>
+		</tr>
+			</table>
+</form>
+<div class="bottomToolbar"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAll('upload_filemgr_save.php','&mode=sql');" onclick="return ConfDelAll(0);">删除</a></span> </div>
+<div class="page"> <div class="pageList"><a href="javascript:;">&lt;&lt;</a><a href="javascript:;">&lt;</a><a href="javascript:;" class="on">1</a><a href="?page=2" class="num">2</a><a href="?page=3" class="num">3</a><a href="?page=2">&gt;</a><a href="?page=3">&gt;&gt;</a></div> </div>
+<div class="quickToolbar">
+	<div class="qiuckWarp">
+		<div class="quickArea"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAll('upload_filemgr_save.php','&mode=sql');" onclick="return ConfDelAll(0);">删除</a></span> <span class="pageSmall">
+			<div class="pageList"><a href="javascript:;">&lt;&lt;</a><a href="javascript:;">&lt;</a><a href="javascript:;" class="on">1</a><a href="?page=2" class="num">2</a><a href="?page=3" class="num">3</a><a href="?page=2">&gt;</a><a href="?page=3">&gt;&gt;</a></div>			</span></div>
+		<div class="quickAreaBg"></div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>数据库管理</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/db.js"></script>
+</head>
+<body>
+<div class="topToolbar"> <span class="title">数据库管理</span> 
+	 <a href="javascript:location.reload();" class="reload">刷新</a></div>
+<div class="toolbarTab">
+	<ul>
+		<li ><a href="XTGL_SJK.html">数据库操作</a></li>
+		<li class="line">-</li>
+		<li class="on"><a href="XTGL_SJK_HY.html">数据库还原</a></li>
+		<li class="line">-</li>
+		<li ><a href="XTGL_SJK_SQL.html">执行SQL语句</a></li>
+	</ul>
+</div>
+
+<form name="form" id="form" method="post" action="?action=import">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
+		<tr align="left" class="head">
+			<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkall" onclick="CheckAllBtn(form)" value="check" /></td>
+			<td width="30%">目录名</td>
+			<td width="30%">目录大小[共0B]</td>
+			<td width="20%">创建时间</td>
+			<td width="15%" class="endCol">操作</td>
+		</tr>
+				<tr>
+			<td colspan="5" class="dataEmpty">暂时没有备份文件</td>
+		</tr>
+			</table>
+	<div class="bottomToolbar"> <span class="selArea"> <span>选择：</span> <a href="javascript:CheckAll(form,true);">全部</a> - <a href="javascript:CheckAll(form,false);">无</a> - <a href="javascript:Repair('?action=import&dopost=deldirall');" onclick="return ConfDel(form);">删除</a></span>
+	</div>
+</form>
+<ul class="tipsList">
+	<li>点击目录或查看可进入备份目录单独还原数据表结构或数据表，也可点击还原备份文件还原所选文件</li>
+</ul>
+<div class="page">
+	<div class="pageText">共<span>0</span>个备份目录</div>
+</div>
+<div class="quickToolbar">
+	<div class="qiuckWarp">
+		<div class="quickArea"> <span class="selArea"> <span>选择：</span> <a href="javascript:CheckAll(form,true);">全部</a> - <a href="javascript:CheckAll(form,false);">无</a> - <a href="javascript:Repair('?action=import&dopost=deldirall');" onclick="return ConfDel(form);">删除</a></span> <span class="pageSmall">
+			<div class="pageText">共<span>0</span>个备份目录</div>
+			</span></div>
+		<div class="quickAreaBg"></div>
+	</div>
+</div>
+

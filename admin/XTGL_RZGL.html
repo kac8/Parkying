@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>操作日志</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/calendar/calendar.js"></script>
+</head>
+<body>
+<div class="topToolbar"> <span class="title">操作日志</span> <a href="javascript:location.reload();" class="reload">刷新</a></div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
+	<tr align="left" class="head">
+		<td height="36" colspan="2">&nbsp;技巧提示</td>
+	</tr>
+	<tr align="left">
+		<td height="110" colspan="2"><ul class="tipsList">
+				<li>只允许超级管理员查看操作日志</li>
+				<li>模块一分钟内多次操作只记录一次</li>
+				<li class="nt">
+					<form name="form" id="form" method="" action="" style="display:inline;">
+						搜索用户：
+						<input type="text" name="uname" id="uname" class="selSysUname" value="" />
+						&nbsp;&nbsp;
+						操作站点：
+						<select name="siteid" id="siteid">
+							<option value="0"> 全部 </option>
+							<option value="1" >默认站点</option>						</select>
+						&nbsp;&nbsp;
+						操作时间：
+						<input type="text" name="starttime" id="starttime" class="inputms" value="2015-07-15 09:40:53" readonly="readonly" />
+						~
+						<input type="text" name="endtime" id="endtime" class="inputms" value="2015-08-14 09:40:53" readonly="readonly" />
+						<script type="text/javascript">
+						Calendar.setup({
+							inputField     :    "starttime",
+							ifFormat       :    "%Y-%m-%d %H:%M:%S",
+							showsTime      :    true,
+							position       :    [463, 200],
+							timeFormat     :    "24"
+						});
+						
+						Calendar.setup({
+							inputField     :    "endtime",
+							ifFormat       :    "%Y-%m-%d %H:%M:%S",
+							showsTime      :    true,
+							position       :    [631, 200],
+							timeFormat     :    "24"
+						});
+						</script> 
+						&nbsp;&nbsp;
+						<input type="submit" class="selSysEventBtn" value="查询" />
+						&nbsp;&nbsp;
+						<input type="button" onclick="location.href='sysevent.php'" class="selSysEventBtn" value="全部" />
+					</form>
+				</li>
+			</ul></td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-14 09:40:49</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">syscount</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-14 09:40:45</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">upload_file</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-14 09:40:24</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">sysevent</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-14 09:38:17</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">database_backup</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-14 09:34:05</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">database_backup</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 22:49:59</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">database_backup</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 22:48:58</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">database_backup</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 22:47:57</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">database_backup</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 22:41:23</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">database_backup</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 22:41:20</span>：</span>用户 <strong>admin</strong> 进行了 <span class="blue">登录操作</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 16:46:05</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">upload_filemgr_sql</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 16:41:31</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">upload_filemgr_sql</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 16:39:30</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">web_config</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 16:11:16</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">web_config</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 16:10:14</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">web_config</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 16:10:14</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">site</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 13:35:59</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admingroup</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 13:35:54</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admin</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 13:32:59</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admin</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 12:45:04</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admingroup</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 12:30:59</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admingroup</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 12:30:56</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admin</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 12:30:55</span>：</span>用户 <strong>admin</strong> 进行了 <span class="blue">登录操作</span></td>
+		<td width="120">记录IP：119.163.127.110</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 07:09:49</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admingroup</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 07:01:56</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admingroup</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 06:55:41</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admingroup</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-13 00:08:38</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admingroup</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-12 23:45:21</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admingroup</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-12 23:44:55</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admin</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+		<tr class="dataTr">
+		<td height="36"><span class="padl10"> <span class="number">2015-08-12 23:41:05</span>：</span>用户 <strong>admin</strong> 在 <span class="maroon2">默认站点</span> 操作了 <span class="blue">admin</span></td>
+		<td width="120">记录IP：27.211.157.223</td>
+	</tr>
+	</table>
+<div class="page"> <div class="pageList"><a href="javascript:;">&lt;&lt;</a><a href="javascript:;">&lt;</a><a href="?page=1" class="on">1</a><a href="?page=2" class="num">2</a><a href="?page=3" class="num">3</a><a href="?page=4" class="num">4</a><a href="?page=5" class="num">5</a><a href="?page=6" class="num">6</a><a href="?page=7" class="num">7</a><a href="javascript:;">...</a><a href="?page=2">&gt;</a><a href="?page=35">&gt;&gt;</a></div> </div>
+</body>
+</html>
