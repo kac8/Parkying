@@ -17,5 +17,5 @@
 
 ### 需求文档
 <hr/>
-接口描述　[[查看]](http://developer.baidu.com)<br/>
-数据字典　[[查看]](http://developer.baidu.com)<br/>
+接口描述　[>>](http://developer.baidu.com)<br/>
+数据字典　[>>](http://developer.baidu.com)<br/>
