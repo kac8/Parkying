@@ -217,7 +217,7 @@
 				</div>
 				<div class="hr_5"></div>
 				<div class="menubox">
-					<div class="title" onclick="DisplayMenu('leftmenu16');" title="点击切换显示或隐藏"> 【15】400电话管理 [＊]</div>
+					<div class="title" onclick="DisplayMenu('leftmenu16');" title="点击切换显示或隐藏"> 【16】400电话管理 [＊]</div>
 					<div id="leftmenu16" style="display:none"> 
 						<a href="DXGL_MBGL.html" target="main"><span class="subType_leftmenu"></span>云通讯设置</a> 
 						<a href="DXGL_MBGL.html" target="main"><span class="subType_leftmenu"></span>接听记录</a> 
@@ -241,6 +241,7 @@
 	
 	<!--copyright-->
 	<div class="copyright">
+		<img src="assets/images/parkyinglogo.png" sidth=36 height=36 />
 		 © 2015 <a href="#" target="_blank">parkying.com</a><br>
 		All Rights Reserved. 
 	</div>
