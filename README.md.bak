@@ -1,29 +1,29 @@
 ### 文件目录说明
 <hr/>
-<table style="font-size:12px">
+<table>
 <tr>
-<td>后台管理</td>
-<td>/admin</td>
+<td style="font-size:12px">后台管理</td>
+<td style="font-size:12px">/admin</td>
 </tr>
 <tr>
-<td>网站</td>
-<td>/web</td>
+<td style="font-size:12px">网站</td>
+<td style="font-size:12px">/web</td>
 </tr>
 <tr>
-<td>手机网站</td>
-<td>/webapp</td>
+<td style="font-size:12px">手机网站</td>
+<td style="font-size:12px">/webapp</td>
 </tr>
 <tr>
-<td>苹果客户端</td>
-<td>/iosapp</td>
+<td style="font-size:12px">苹果客户端</td>
+<td style="font-size:12px">/iosapp</td>
 </tr>
 <tr>
-<td>安卓客户端</td>
-<td>/androidapp</td>
+<td style="font-size:12px">安卓客户端</td>
+<td style="font-size:12px">/androidapp</td>
 </tr>
 <tr>
-<td>接口</td>
-<td>/interface</td>
+<td style="font-size:12px">接口</td>
+<td style="font-size:12px">/interface</td>
 </tr>
 </table>
 ### 第三方开放平台
