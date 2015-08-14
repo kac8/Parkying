@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>级联数据管理</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+</head>
+<body>
+<div class="topToolbar"> <span class="title">级联数据管理</span> <span class="text">级联标识：<a href="cascade.php">地区&nbsp;|&nbsp;area</a></span> <a href="javascript:location.reload();" class="reload">刷新</a></div>
+<form name="form" id="form" method="post" action="cascadedata_save.php?action=save">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
+		<tr align="left" class="head">
+			<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid" id="checkid" onclick="CheckAll(this.checked);"></td>
+			<td width="5%">枚举值</td>
+			<td width="50%">
+			<select name="select" onchange="location.href='?sign=area&v1='+this.value;"><option value="0">请选择</option><option value="1000" >北京市</option><option value="1500" >天津市</option><option value="2000" >河北省</option><option value="2500" >山西省</option><option value="3000" >内蒙古自治区</option><option value="3500" >辽宁省</option><option value="4000" >吉林省</option><option value="4500" >黑龙江省</option><option value="5000" >上海市</option><option value="5500" >江苏省</option><option value="6000" >浙江省</option><option value="6500" >安徽省</option><option value="7000" >福建省</option><option value="7500" >江西省</option><option value="8000" >山东省</option><option value="8500" >河南省</option><option value="9000" >湖北省</option><option value="9500" >湖南省</option><option value="10000" >广东省</option><option value="10500" >广西壮族自治区</option><option value="11000" >海南省</option><option value="11500" >重庆市</option><option value="12000" >四川省</option><option value="12500" >贵州省</option><option value="13000" >云南省</option><option value="13500" >西藏自治区</option><option value="14000" >陕西省</option><option value="14500" >甘肃省</option><option value="15000" >青海省</option><option value="15500" >宁夏回族自治区</option><option value="16000" >新疆维吾尔自治区</option><option value="16500" >台湾省</option><option value="17000" >香港特别行政区</option><option value="17500" >澳门特别行政区</option></select>&nbsp;&nbsp;			</td>
+			<td width="20%" align="center">排序</td>
+			<td width="20%" class="endCol">操作</td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="16794"></td>
+			<td>1000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="北京市" />
+			<input type="hidden" name="id[]" id="id[]" value="16794" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="1000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=16794" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="16813"></td>
+			<td>1500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="天津市" />
+			<input type="hidden" name="id[]" id="id[]" value="16813" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="1500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=16813" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="16832"></td>
+			<td>2000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="河北省" />
+			<input type="hidden" name="id[]" id="id[]" value="16832" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="2000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=16832" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="17017"></td>
+			<td>2500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="山西省" />
+			<input type="hidden" name="id[]" id="id[]" value="17017" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="2500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=17017" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="17149"></td>
+			<td>3000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="内蒙古自治区" />
+			<input type="hidden" name="id[]" id="id[]" value="17149" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="3000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=17149" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="17263"></td>
+			<td>3500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="辽宁省" />
+			<input type="hidden" name="id[]" id="id[]" value="17263" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="3500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=17263" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="17378"></td>
+			<td>4000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="吉林省" />
+			<input type="hidden" name="id[]" id="id[]" value="17378" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="4000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=17378" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="17448"></td>
+			<td>4500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="黑龙江省" />
+			<input type="hidden" name="id[]" id="id[]" value="17448" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="4500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=17448" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="17591"></td>
+			<td>5000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="上海市" />
+			<input type="hidden" name="id[]" id="id[]" value="17591" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="5000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=17591" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="17611"></td>
+			<td>5500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="江苏省" />
+			<input type="hidden" name="id[]" id="id[]" value="17611" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="5500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=17611" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="17731"></td>
+			<td>6000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="浙江省" />
+			<input type="hidden" name="id[]" id="id[]" value="17731" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="6000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=17731" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="17833"></td>
+			<td>6500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="安徽省" />
+			<input type="hidden" name="id[]" id="id[]" value="17833" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="6500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=17833" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="17956"></td>
+			<td>7000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="福建省" />
+			<input type="hidden" name="id[]" id="id[]" value="17956" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="7000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=17956" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="18051"></td>
+			<td>7500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="江西省" />
+			<input type="hidden" name="id[]" id="id[]" value="18051" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="7500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=18051" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="18162"></td>
+			<td>8000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="山东省" />
+			<input type="hidden" name="id[]" id="id[]" value="18162" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="8000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=18162" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="18314"></td>
+			<td>8500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="河南省" />
+			<input type="hidden" name="id[]" id="id[]" value="18314" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="8500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=18314" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="18491"></td>
+			<td>9000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="湖北省" />
+			<input type="hidden" name="id[]" id="id[]" value="18491" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="9000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=18491" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="18608"></td>
+			<td>9500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="湖南省" />
+			<input type="hidden" name="id[]" id="id[]" value="18608" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="9500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=18608" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="18745"></td>
+			<td>10000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="广东省" />
+			<input type="hidden" name="id[]" id="id[]" value="18745" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="10000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=18745" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="18887"></td>
+			<td>10500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="广西壮族自治区" />
+			<input type="hidden" name="id[]" id="id[]" value="18887" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="10500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=18887" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="19011"></td>
+			<td>11000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="海南省" />
+			<input type="hidden" name="id[]" id="id[]" value="19011" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="11000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=19011" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="19038"></td>
+			<td>11500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="重庆市" />
+			<input type="hidden" name="id[]" id="id[]" value="19038" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="11500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=19038" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="19079"></td>
+			<td>12000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="四川省" />
+			<input type="hidden" name="id[]" id="id[]" value="19079" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="12000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=19079" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="19282"></td>
+			<td>12500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="贵州省" />
+			<input type="hidden" name="id[]" id="id[]" value="19282" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="12500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=19282" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="19379"></td>
+			<td>13000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="云南省" />
+			<input type="hidden" name="id[]" id="id[]" value="19379" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="13000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=19379" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="19524"></td>
+			<td>13500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="西藏自治区" />
+			<input type="hidden" name="id[]" id="id[]" value="19524" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="13500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=19524" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="19605"></td>
+			<td>14000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="陕西省" />
+			<input type="hidden" name="id[]" id="id[]" value="19605" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="14000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=19605" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="19723"></td>
+			<td>14500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="甘肃省" />
+			<input type="hidden" name="id[]" id="id[]" value="19723" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="14500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=19723" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="19824"></td>
+			<td>15000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="青海省" />
+			<input type="hidden" name="id[]" id="id[]" value="19824" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="15000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=19824" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="19876"></td>
+			<td>15500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="宁夏回族自治区" />
+			<input type="hidden" name="id[]" id="id[]" value="19876" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="15500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=19876" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="19903"></td>
+			<td>16000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="新疆维吾尔自治区" />
+			<input type="hidden" name="id[]" id="id[]" value="19903" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="16000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=19903" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="20017"></td>
+			<td>16500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="台湾省" />
+			<input type="hidden" name="id[]" id="id[]" value="20017" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="16500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=20017" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="20018"></td>
+			<td>17000</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="香港特别行政区" />
+			<input type="hidden" name="id[]" id="id[]" value="20018" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="17000" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=20018" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="20019"></td>
+			<td>17500</td>
+			<td><input type="text" name="dataname[]" id="dataname[]" class="inputd" value="澳门特别行政区" />
+			<input type="hidden" name="id[]" id="id[]" value="20019" /></td>
+			<td align="center"><input type="text" name="orderid[]" id="orderid[]" class="inputls" value="17500" /></td>
+			<td class="action endCol"><a href="cascadedata_save.php?action=delclass&amp;sign=area&amp;id=20019" onclick="return ConfDel(0);">删除</a></td>
+		</tr>
+				<tr align="center">
+			<td height="36" colspan="5"><strong>新增一个级联数据</strong></td>
+		</tr>
+		<tr align="left" class="dataTrOn">
+			<td height="36">&nbsp;</td>
+			<td><input name="datavalue_add" type="text" id="datavalue_add" class="inputls" value="" /></td>
+			<td class="title"><input type="text" name="dataname_add" id="dataname_add" class="input" value="" /></td>
+			<td align="center">
+						<input name="orderid_add" type="text" id="orderid_add" class="inputls" value="17501" /></td>
+			<td>
+						<input type="hidden" name="level_add" id="level_add" value="0" />
+			<input type="hidden" name="datagroup_add" id="datagroup_add" value="area" />
+			<input type="hidden" name="sign" id="sign" value="area" />
+			</td>
+		</tr>
+	</table>
+</form>
+<div class="bottomToolbar"><span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:SubUrlParam('cascadedata_save.php?action=delallclass');" onclick="return ConfDelAll(2);">删除</a>　<span>操作：</span><a href="javascript:UpOrderID('cascadedata_save.php');">更新排序</a></span> <a href="javascript:void(0);" onclick="form.submit();return false;" class="dataBtn">更新全部</a><a href="cascade.php" class="dataBack">返回级联</a></div>
+<div class="page">
+	<div class="pageText">共有<span>
+	3226	</span>条记录</div>
+</div>
+<div class="quickToolbar">
+	<div class="qiuckWarp">
+		<div class="quickArea"><span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:SubUrlParam('cascadedata_save.php?action=delallclass');" onclick="return ConfDelAll(2);">删除</a>　<span>操作：</span><a href="javascript:UpOrderID('cascadedata_save.php');">更新排序</a></span> <a href="javascript:void(0);" onclick="form.submit();return false;" class="dataBtn">更新全部</a><span class="pageSmall">
+			<div class="pageText">共有<span>3226</span>条记录&nbsp;&nbsp;<a href="cascade.php">返回级联</a></div>
+			</span></div>
+		<div class="quickAreaBg"></div>
+	</div>
+</div>
+</body>
+</html>

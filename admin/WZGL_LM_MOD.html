@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>修改栏目</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/getuploadify.js"></script>
+<script type="text/javascript" src="assets/js/getcatpsize.js"></script>
+<script type="text/javascript" src="assets/js/checkf.func.js"></script>
+</head>
+<body>
+<div class="formHeader"> <span class="title">修改栏目</span> <a href="javascript:location.reload();" class="reload">刷新</a> </div>
+<form name="form" id="form" method="post" action="infoclass_save.php" onsubmit="return cfm_infoclass();">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="formTable">
+		<tr>
+			<td width="25%" height="40" align="right">栏目类型：</td>
+			<td width="380"><select name="infotype" id="infotype">
+				<option value="0" selected="selected">单页</option><option value="1" >列表</option><option value="2" >图片</option><option value="3" >下载</option><option value="4" >商品</option><option value="12" >live直播</option>				</select>
+				<span class="maroon">*</span></td>
+			<td><span class="cnote">带<span class="maroon">*</span>号表示为必填项</span></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">所属栏目：</td>
+			<td><select name="parentid" id="parentid" onchange="GetCatpSize(this.value);">
+					<option value="0">一级栏目</option>
+					<option value="1" >网站公告</option><option value="2" >关于我们</option><option value="3" >&nbsp;&nbsp;&nbsp;&nbsp;|- 关于我们摘要</option><option value="25" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|- test</option><option value="4" >文章</option><option value="21" >&nbsp;&nbsp;&nbsp;&nbsp;|- 帮助中心</option><option value="22" >&nbsp;&nbsp;&nbsp;&nbsp;|- 服务支持</option><option value="23" >&nbsp;&nbsp;&nbsp;&nbsp;|- 凤凰之家</option><option value="24" >&nbsp;&nbsp;&nbsp;&nbsp;|- 关于我们</option><option value="5" >产品展示</option><option value="8" >Live直播</option><option value="19" >&nbsp;&nbsp;&nbsp;&nbsp;|- 家装进度</option><option value="20" >&nbsp;&nbsp;&nbsp;&nbsp;|- 直播案例</option><option value="9" >联系我们</option><option value="10" >&nbsp;&nbsp;&nbsp;&nbsp;|- 联系我们摘要</option><option value="11" >软件下载</option><option value="12" >预约</option><option value="13" >幻灯Banner</option><option value="16" >家装案例</option>				</select>
+				<span class="maroon">*</span></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="40" align="right">栏目名称：</td>
+			<td><input name="classname" type="text" id="classname" value="网站公告"  class="input" />
+				<span class="maroon">*</span></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="40" align="right">缩略图片：</td>
+			<td><input name="picurl" type="text" id="picurl" class="input" value="" />
+				<span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,2097152,'picurl')">上 传</span></span></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="40" align="right">自动缩略：</td>
+			<td><input type="text" name="picwidth" id="picwidth" class="inputls" value="" />
+				宽度(px)
+				&nbsp;&nbsp;&nbsp;
+				<input type="text" name="picheight" id="picheight" class="inputls" value="" />
+				高度(px)</td>
+			<td><span class="cnote">子栏目自动获取上级尺寸；留空不启用；原图：上传文件名_hd.扩展名</span></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">跳转链接：</td>
+			<td><input name="linkurl" type="text" id="linkurl" class="input" value="" /></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="40" align="right">SEO标题：</td>
+			<td><input type="text" name="seotitle" id="seotitle" class="input" value="" /></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="40" align="right">关键词：</td>
+			<td><input type="text" name="keywords" id="keywords" class="input" value="" /></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="118" align="right">栏目描述：</td>
+			<td><textarea name="description" id="description" class="textarea"></textarea></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td height="40" align="right">排列排序：</td>
+			<td><input type="text" name="orderid" id="orderid" class="inputs" value="1" /></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr class="nb">
+			<td height="40" align="right">隐藏栏目：</td>
+			<td><input type="radio" name="checkinfo" value="true"  />
+				显示&nbsp;
+				<input type="radio" name="checkinfo" value="false" checked="checked" />
+				隐藏</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	<div class="formSubBtn">
+		<input type="submit" class="submit" value="提交" />
+		<input type="button" class="back" value="返回" onclick="history.go(-1);" />
+		<input type="hidden" name="action" id="action" value="update" />
+		<input type="hidden" name="id" id="id" value="1" />
+		<input type="hidden" name="repid" id="repid" value="0" />
+	</div>
+</form>
+</body>
+</html>

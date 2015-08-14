@@ -23,7 +23,7 @@
 				<span class="maroon">*</span><span class="cnote">带<span class="maroon">*</span>号表示为必填项</span></td>
 		</tr>
 		<tr>
-			<td height="40" align="right">类型名称：</td>
+			<td height="40" align="right">类别名称：</td>
 			<td><input type="text" name="classname" id="classname" class="input" value="live直播" />
 				<span class="maroon">*</span></td>
 		</tr>
@@ -41,7 +41,7 @@
 			<td><input type="text" name="orderid" id="orderid" class="inputs" value="7" /></td>
 		</tr>
 		<tr class="nb">
-			<td height="40" align="right">隐藏类型：</td>
+			<td height="40" align="right">隐藏类别：</td>
 			<td><input type="radio" name="checkinfo" value="true" checked="checked" />
 				显示&nbsp;
 				<input type="radio" name="checkinfo" value="false"  />

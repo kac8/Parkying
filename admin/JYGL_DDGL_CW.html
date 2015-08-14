@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>车位订单管理</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+</head>
+<body>
+<div class="topToolbar"> <span class="title">车位订单管理</span> <a href="javascript:location.reload();" class="reload">刷新</a></div>
+<div class="toolbarTab">
+	<ul>
+		<li class="on"><a href="?flag=all">全部</a></li>
+		<li class="line">-</li>
+		<li class=""><a href="?flag=core">预约</a></li>
+		<li class="line">-</li>
+		<li class=""><a href="?flag=empty">取消</a></li>
+		<li class="line">-</li>
+		<li class=""><a href="?flag=confirm">确认</a></li>
+		<li class="line">-</li>
+		<li class=""><a href="?flag=payment">付款</a></li>
+		<li class="line">-</li>
+		<li class=""><a href="?flag=agreedreturn">退款</a></li>
+	</ul>
+	<div class="search">
+		<form name="forms" id="forms" method="get" action="">
+			<span class="s">
+			<input name="keyword" id="keyword" type="text" title="输入用户名进行搜索" value="" />
+			</span> <span class="b"><a href="javascript:;" onclick="forms.submit();"></a></span>
+		</form>
+	</div>
+</div>
+<form name="form" id="form" method="post" action="">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
+		<tr align="left" class="head">
+			<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid" id="checkid" onclick="CheckAll(this.checked);"></td>
+			<td width="5%">ID</td>
+			<td width="13%">用户名</td>
+			<td width="15%">订单编号</td>
+			<td width="15%">联系人/电话</td>
+			<td width="10%">金额</td>
+			<td width="15%">更新时间</td>
+			<td width="10%">订单状态</td>
+			<td width="12%" class="endCol">操作</td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="14" /></td>
+			<td>14</td>
+			<td>scosun</td>
+			<td>201507106847</td>
+			<td>123123/123123</td>
+			<td>800</td>
+			<td class="number">2015-07-10 20:20:28</td>
+			<td class="blue"></td>
+			<td class="action endCol"><span><a href="goodsorder_update.php?id=14">修改</a></span> | <span class="nb"><a href="goodsorder_save.php?action=del2&id=14" onclick="return ConfDel(0)">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="13" /></td>
+			<td>13</td>
+			<td>scosun</td>
+			<td>201507036311</td>
+			<td>辛海涛/13698626066</td>
+			<td>800</td>
+			<td class="number">2015-07-03 00:41:37</td>
+			<td class="blue"></td>
+			<td class="action endCol"><span><a href="goodsorder_update.php?id=13">修改</a></span> | <span class="nb"><a href="goodsorder_save.php?action=del2&id=13" onclick="return ConfDel(0)">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="12" /></td>
+			<td>12</td>
+			<td>logmark</td>
+			<td>20150629549</td>
+			<td>刘庚/15801305054</td>
+			<td>800</td>
+			<td class="number">2015-06-29 14:47:27</td>
+			<td class="blue"></td>
+			<td class="action endCol"><span><a href="goodsorder_update.php?id=12">修改</a></span> | <span class="nb"><a href="goodsorder_save.php?action=del2&id=12" onclick="return ConfDel(0)">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="11" /></td>
+			<td>11</td>
+			<td>chxy020</td>
+			<td>201506299095</td>
+			<td>fff/132312344334</td>
+			<td>1600</td>
+			<td class="number">2015-06-29 13:52:12</td>
+			<td class="blue"></td>
+			<td class="action endCol"><span><a href="goodsorder_update.php?id=11">修改</a></span> | <span class="nb"><a href="goodsorder_save.php?action=del2&id=11" onclick="return ConfDel(0)">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="10" /></td>
+			<td>10</td>
+			<td>scosun</td>
+			<td>201506261627</td>
+			<td>1111/1111</td>
+			<td>1299</td>
+			<td class="number">2015-06-26 01:54:50</td>
+			<td class="blue"></td>
+			<td class="action endCol"><span><a href="goodsorder_update.php?id=10">修改</a></span> | <span class="nb"><a href="goodsorder_save.php?action=del2&id=10" onclick="return ConfDel(0)">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="9" /></td>
+			<td>9</td>
+			<td>scosun</td>
+			<td>201506268411</td>
+			<td>你们呢/111</td>
+			<td>800</td>
+			<td class="number">2015-06-26 01:50:01</td>
+			<td class="blue"></td>
+			<td class="action endCol"><span><a href="goodsorder_update.php?id=9">修改</a></span> | <span class="nb"><a href="goodsorder_save.php?action=del2&id=9" onclick="return ConfDel(0)">删除</a></span></td>
+		</tr>
+				<tr align="left" class="dataTr">
+			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="8" /></td>
+			<td>8</td>
+			<td>scosun</td>
+			<td>201506261794</td>
+			<td>辛海涛/22222</td>
+			<td>800</td>
+			<td class="number">2015-06-26 01:47:33</td>
+			<td class="blue"></td>
+			<td class="action endCol"><span><a href="goodsorder_update.php?id=8">修改</a></span> | <span class="nb"><a href="goodsorder_save.php?action=del2&id=8" onclick="return ConfDel(0)">删除</a></span></td>
+		</tr>
+			</table>
+</form>
+<div class="bottomToolbar"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAllNone('goodsorder_save.php');" onclick="return ConfDelAll(0);">删除</a></span> </div>
+<div class="page"> <div class="pageText">共<span>1</span>页<span>7</span>条记录</div> </div>
+<div class="quickToolbar">
+	<div class="qiuckWarp">
+		<div class="quickArea"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAllNone('goodsorder_save.php');" onclick="return ConfDelAll(0);">删除</a></span> <span class="pageSmall">
+			<div class="pageText"><div class="pageText">共<span>1</span>页<span>7</span>条记录</div></div>
+			</span></div>
+		<div class="quickAreaBg"></div>
+	</div>
+</div>
+</body>
+</html>

@@ -8,11 +8,6 @@ person: Feng
 **************************
 */
 
-/*自定义个控制*/
-iw{width:30px;}
-
-
-
 /*全局控制*/
 body{margin:0;padding:0;line-height:22px;background:#fafafa;font-family:"微软雅黑",Arial,"宋体";font-size:12px;overflow:hidden;-webkit-text-size-adjust:none;}
 html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,p{margin:0;padding:0;}
@@ -42,17 +37,13 @@ a:focus{outline:none;}
 .quickBtnRight a{background-position:0 -56px;}
 .quickBtnRight a:hover{background-position:0 -86px;}
 
-
-
 /*菜单盒子*/
 .menubox{width:190px;margin:0 auto;position:relative;}
 .menubox .title{width:160px;padding-left:32px;line-height:32px;font-weight:bold;color:#333;cursor:pointer;}
-.menubox .on{background:url(../images/leftNavBg.png) no-repeat 0 -120px;}
+.menubox .on{background:url(../images/leftNavBg.png) no-repeat 0 -118px;}
 .menubox a{display:block;padding-left:32px;line-height:27px;color:#bfbfbf;}
 .menubox a:hover{color:#333;}
 .menubox a{transition-duration:300ms;}
-
-
 
 /*标记图标*/
 .menubox a.admingroup,.menubox a.infoattr,.menubox a.infosrc,.menubox a.usertype,.menubox a.adtype,.menubox a.weblinktype,.menubox a.goodsinfoattr,
