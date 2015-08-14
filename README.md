@@ -6,6 +6,8 @@
 苹果客户端　　/iosapp<br/>
 安卓客户端　　/androidapp<br/>
 接口　　　　　/interface<br/>
+设计稿　　　　/design<br/>
+临时　　　　　/temp<br/>
 
 ### 第三方开放平台
 <hr/>
