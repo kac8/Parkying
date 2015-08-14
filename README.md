@@ -1,4 +1,4 @@
-<img src=https://github.com/kac8/Parkying/blob/master/temp/parkyinglogo.png?raw=true width=114 height=114>
+<img src=https://github.com/kac8/Parkying/blob/master/temp/parkyinglogo.png?raw=true width=72 height=72>
 ### 文件目录说明
 <hr/>
 后台管理　　　/admin<br/>
