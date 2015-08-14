@@ -7,9 +7,6 @@
 `安卓客户端  	/androidapp`<br/>
 `接口        	/interface`<br/>
 
-
-
-
 ### 第三方开放平台
 <hr/>
 [百度开放平台](http://developer.baidu.com)<br/>
