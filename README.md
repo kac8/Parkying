@@ -25,10 +25,10 @@
 <hr/>
 功能描述　[»](https://github.com/kac8/Parkying/wiki/Home)<br/>
 接口说明　[»](https://github.com/kac8/Parkying/wiki/Interface)<br/>
-数据字典  [»](https://github.com/kac8/Parkying/wiki/Database)<br/>
-<hr/>
-更新说明　[»](https://github.com/kac8/Parkying/wiki/Database)<br/>
-相关下载　[»](https://github.com/kac8/Parkying/wiki/Database)<br/>
+数据字典　[»](https://github.com/kac8/Parkying/wiki/Database)<br/>
+
+更新说明　[»](https://github.com/kac8/Parkying/wiki/update)<br/>
+相关下载　[»](https://github.com/kac8/Parkying/wiki/download)<br/>
 
 
 ### 团队成员空缺招募
