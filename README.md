@@ -1,4 +1,6 @@
-<img src=https://github.com/kac8/Parkying/blob/master/temp/parkyinglogo.png?raw=true width=72 height=72>
+<img src=https://github.com/kac8/Parkying/blob/master/temp/parkyinglogo.png?raw=true width=72 height=72><br/>
+停车社交APP啪客赢，是一个车位即时和短租交换的平台。
+
 ### 文件目录说明
 <hr/>
 后台管理　　　/admin<br/>
