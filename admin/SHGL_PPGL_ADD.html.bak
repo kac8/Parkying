@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>添加品牌</title>
-<link href="templates/style/admin.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/getuploadify.js"></script>
 <script type="text/javascript" src="assets/js/checkf.js"></script>
