@@ -1,6 +1,6 @@
 ### 文件目录说明
 <hr/>
-<table>
+<table style="font-size:12px">
 <tr>
 <td>后台管理</td>
 <td>/admin</td>
