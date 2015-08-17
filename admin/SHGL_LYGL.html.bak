@@ -27,7 +27,7 @@
 			<td>111</td>
 			<td class="number">2015-08-14 20:09:47</td>
 			<td>27.211.157.223</td>
-			<td class="action endCol"><span><a href="message_save.php?id=3&action=check&checkinfo=true" title="点击进行审核与未审操作">已审</a></span> | <span><a href="HYGL_LYGL_MOD.html">修改</a></span> | <span class="nb"><a href="message_save.php?action=del2&id=3" onclick="return ConfDel(0);">删除</a></span></td>
+			<td class="action endCol"><span><a href="message_save.php?id=3&action=check&checkinfo=true" title="点击进行审核与未审操作">已审</a></span> | <span><a href="SHGL_LYGL_ADD.html">修改</a></span> | <span class="nb"><a href="message_save.php?action=del2&id=3" onclick="return ConfDel(0);">删除</a></span></td>
 		</tr>
 				<tr align="left" class="dataTr">
 			<td height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="2" /></td>
@@ -36,15 +36,15 @@
 			<td>111</td>
 			<td class="number">2015-08-14 20:02:44</td>
 			<td>27.211.157.223</td>
-			<td class="action endCol"><span><a href="message_save.php?id=2&action=check&checkinfo=true" title="点击进行审核与未审操作">已审</a></span> | <span><a href="HYGL_LYGL_MOD.html">修改</a></span> | <span class="nb"><a href="message_save.php?action=del2&id=2" onclick="return ConfDel(0);">删除</a></span></td>
+			<td class="action endCol"><span><a href="message_save.php?id=2&action=check&checkinfo=true" title="点击进行审核与未审操作">已审</a></span> | <span><a href="SHGL_LYGL_ADD.html">修改</a></span> | <span class="nb"><a href="message_save.php?action=del2&id=2" onclick="return ConfDel(0);">删除</a></span></td>
 		</tr>
 			</table>
 </form>
-<div class="bottomToolbar"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAllNone('message_save.php');" onclick="return ConfDelAll(0);">删除</a></span> <a href="HYGL_LYGL_ADD.html" class="dataBtn">添加新留言</a> </div>
+<div class="bottomToolbar"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAllNone('message_save.php');" onclick="return ConfDelAll(0);">删除</a></span> <a href="SHGL_LYGL_ADD.html" class="dataBtn">添加新留言</a> </div>
 <div class="page"> <div class="pageText">共<span>1</span>页<span>2</span>条记录</div> </div>
 <div class="quickToolbar">
 	<div class="qiuckWarp">
-		<div class="quickArea"><span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAllNone('message_save.php');" onclick="return ConfDelAll(0);">删除</a></span> <a href="HYGL_LYGL_ADD.html" class="dataBtn">添加新留言</a> <span class="pageSmall"> <div class="pageText">共<span>1</span>页<span>2</span>条记录</div> </span></div>
+		<div class="quickArea"><span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAllNone('message_save.php');" onclick="return ConfDelAll(0);">删除</a></span> <a href="SHGL_LYGL_ADD.html" class="dataBtn">添加新留言</a> <span class="pageSmall"> <div class="pageText">共<span>1</span>页<span>2</span>条记录</div> </span></div>
 		<div class="quickAreaBg"></div>
 	</div>
 </div>

@@ -30,7 +30,9 @@
 		</a>
 		<!--左侧列表栏隐藏/显示icon-->
 		
-
+		<div></div><img src="assets/images/parkyinglogo.png" sidth=48 height=48 />
+		
+		
 		<!--管理员信息弹窗-->
 		<div class="user"> 
 			<span class="name">Hi, admin</span> 

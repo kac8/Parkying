@@ -28,7 +28,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=1&parentid=0&orderid=1" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="1" />
 					<a href="infoclass_save.php?action=down&id=1&parentid=0&orderid=1" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=1&checkinfo=false" title="点击进行显示与隐藏操作">隐藏</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=1" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=1&checkinfo=false" title="点击进行显示与隐藏操作">隐藏</a></span> | <span><a href="infoclass_update.php?id=1">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=1" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -41,7 +41,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=2&parentid=0&orderid=2" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="2" />
 					<a href="infoclass_save.php?action=down&id=2&parentid=0&orderid=2" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=2&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=2" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=2&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=2">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=2" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -54,7 +54,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=3&parentid=2&orderid=3" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="3" />
 					<a href="infoclass_save.php?action=down&id=3&parentid=2&orderid=3" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=3&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=3" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=3&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=3">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=3" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -67,7 +67,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=25&parentid=3&orderid=23" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="23" />
 					<a href="infoclass_save.php?action=down&id=25&parentid=3&orderid=23" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=25&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=25" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=25&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=25">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=25" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -80,7 +80,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=4&parentid=0&orderid=4" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="4" />
 					<a href="infoclass_save.php?action=down&id=4&parentid=0&orderid=4" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=4&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=4" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=4&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=4">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=4" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -93,7 +93,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=21&parentid=4&orderid=19" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="19" />
 					<a href="infoclass_save.php?action=down&id=21&parentid=4&orderid=19" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=21&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=21" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=21&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=21">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=21" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -106,7 +106,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=22&parentid=4&orderid=20" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="20" />
 					<a href="infoclass_save.php?action=down&id=22&parentid=4&orderid=20" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=22&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=22" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=22&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=22">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=22" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -119,7 +119,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=23&parentid=4&orderid=21" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="21" />
 					<a href="infoclass_save.php?action=down&id=23&parentid=4&orderid=21" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=23&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=23" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=23&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=23">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=23" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -132,7 +132,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=24&parentid=4&orderid=22" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="22" />
 					<a href="infoclass_save.php?action=down&id=24&parentid=4&orderid=22" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=24&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=24" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=24&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=24">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=24" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -145,7 +145,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=5&parentid=0&orderid=5" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="5" />
 					<a href="infoclass_save.php?action=down&id=5&parentid=0&orderid=5" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=5&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=5" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=5&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=5">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=5" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -158,7 +158,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=8&parentid=0&orderid=8" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="8" />
 					<a href="infoclass_save.php?action=down&id=8&parentid=0&orderid=8" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=8&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=8" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=8&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=8">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=8" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -171,7 +171,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=19&parentid=8&orderid=17" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="17" />
 					<a href="infoclass_save.php?action=down&id=19&parentid=8&orderid=17" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=19&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=19" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=19&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=19">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=19" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -184,7 +184,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=20&parentid=8&orderid=18" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="18" />
 					<a href="infoclass_save.php?action=down&id=20&parentid=8&orderid=18" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=20&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=20" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=20&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=20">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=20" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -197,7 +197,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=9&parentid=0&orderid=9" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="9" />
 					<a href="infoclass_save.php?action=down&id=9&parentid=0&orderid=9" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=9&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=9" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=9&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=9">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=9" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -210,7 +210,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=10&parentid=9&orderid=10" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="10" />
 					<a href="infoclass_save.php?action=down&id=10&parentid=9&orderid=10" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=10&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=10" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=10&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=10">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=10" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -223,7 +223,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=11&parentid=0&orderid=11" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="11" />
 					<a href="infoclass_save.php?action=down&id=11&parentid=0&orderid=11" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=11&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=11" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=11&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=11">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=11" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -236,7 +236,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=12&parentid=0&orderid=12" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="12" />
 					<a href="infoclass_save.php?action=down&id=12&parentid=0&orderid=12" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=12&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=12" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=12&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=12">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=12" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -249,7 +249,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=13&parentid=0&orderid=13" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="13" />
 					<a href="infoclass_save.php?action=down&id=13&parentid=0&orderid=13" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=13&checkinfo=false" title="点击进行显示与隐藏操作">隐藏</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=13" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=13&checkinfo=false" title="点击进行显示与隐藏操作">隐藏</a></span> | <span><a href="infoclass_update.php?id=13">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=13" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>
@@ -262,7 +262,7 @@
 				<td width="20%" align="center"><a href="infoclass_save.php?action=up&id=16&parentid=0&orderid=16" class="leftArrow" title="提升排序"></a>
 					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="16" />
 					<a href="infoclass_save.php?action=down&id=16&parentid=0&orderid=16" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=16&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="WZGL_LM_MOD.html">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=16" onclick="return ConfDel(2);">删除</a></span></td>
+				<td width="32%" class="action endCol"><span><a href="WZGL_LM_ADD.html">添加子栏目</a></span> | <span><a href="infoclass_save.php?action=check&id=16&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="infoclass_update.php?id=16">修改</a></span> | <span class="nb"><a href="infoclass_save.php?action=delclass&id=16" onclick="return ConfDel(2);">删除</a></span></td>
 			</tr>
 		</table>
 	</div>

@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<div class="topToolbar"> <span class="title">文章管理</span>
+<div class="topToolbar"> <span class="title">列表信息管理</span>
 <span class="alltype">
 	<a class="btn" onclick="GetType('','查看全部',$(this))" href="javascript:;">查看全部</a>
 	<span class="drop">

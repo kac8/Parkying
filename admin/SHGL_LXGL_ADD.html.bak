@@ -2,62 +2,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>类型管理</title>
+<title>新增类型</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/getuploadify.js"></script>
+<script type="text/javascript" src="assets/js/checkf.func.js"></script>
 </head>
 <body>
-<div class="topToolbar"> <span class="title">类型管理</span> <a href="javascript:location.reload();" class="reload">刷新</a></div>
-<form name="form" id="form" method="post" action="">
-	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
-		<tr align="left" class="head">
-			<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid" onclick="CheckAll(this.checked);" /></td>
-			<td width="3%">ID</td>
-			<td width="40%">类别名称</td>
-			<td width="20%" align="center" abbr="center">排序</td>
-			<td width="32%" class="endCol">操作</td>
+<div class="formHeader"> <span class="title">新增类型</span> <a href="javascript:location.reload();" class="reload">刷新</a> </div>
+<form name="form" id="form" method="post" action="goodstype_save.php" onsubmit="return cfm_btype();">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="formTable">
+		<tr>
+			<td width="25%" height="40" align="right">所属类别：</td>
+			<td width="75%">
+				<select name="parentid" id="parentid">
+					<option value="0">一级类型</option>
+					<option value="28" >泊车</option>
+					<option value="31" >保险</option>
+				</select>
+				<span class="maroon">*</span><span class="cnote">带<span class="maroon">*</span>号表示为必填项</span></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">类型名称：</td>
+			<td><input type="text" name="classname" id="classname" class="input" />
+				<span class="maroon">*</span></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">缩略图片：</td>
+			<td><input type="text" name="picurl" id="picurl" class="input" />
+				<span class="cnote"><span class="grayBtn" onclick="GetUploadify('uploadify','缩略图上传','image','image',1,2097152,'picurl')">上 传</span></span></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">跳转链接：</td>
+			<td><input type="text" name="linkurl" id="linkurl" class="input" /></td>
+		</tr>
+		<tr>
+			<td height="40" align="right">排列顺序：</td>
+			<td><input type="text" name="orderid" id="orderid" class="inputs" value="8" /></td>
+		</tr>
+		<tr class="nb">
+			<td height="40" align="right">隐藏类型：</td>
+			<td><input type="radio" name="checkinfo" value="true" checked="checked"  />
+				显示&nbsp;
+				<input type="radio" name="checkinfo" value="false" />
+				隐藏</td>
 		</tr>
 	</table>
-		<div rel="rowpid_0">
-		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
-			<tr align="left" class="dataTr">
-				<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="28" /></td>
-				<td width="3%">28					<input type="hidden" name="id[]" id="id[]" value="28" /></td>
-				<td width="40%"><span class="minusSign" id="rowid_28" onclick="DisplayRows(28);">泊车</span></td>
-				<td width="20%" align="center"><a href="goodstype_save.php?action=up&id=28&parentid=0&orderid=1" class="leftArrow" title="提升排序"></a>
-					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="1" />
-					<a href="goodstype_save.php?action=down&id=28&parentid=0&orderid=1" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="goodstype_add.php?id=28">添加子类别</a></span> | <span><a href="goodsattr.php?gid=28">属性管理</a></span> | <span><a href="goodstype_save.php?id=28&action=check&checkinfo=true" title="点击进行显示与隐藏操作">显示</a></span> | <span><a href="goodstype_update.php?id=28">修改</a></span> | <span class="nb"><a href="goodstype_save.php?action=del&id=28" onclick="return ConfDel(2);">删除</a></span></td>
-			</tr>
-		</table>
+	<div class="formSubBtn">
+		<input type="submit" class="submit" value="提交" />
+		<input type="button" class="back" value="返回" onclick="history.go(-1);" />
+		<input type="hidden" name="action" id="action" value="add" />
 	</div>
-		<div rel="rowpid_0">
-		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dataTable">
-			<tr align="left" class="dataTr">
-				<td width="5%" height="36" class="firstCol"><input type="checkbox" name="checkid[]" id="checkid[]" value="31" /></td>
-				<td width="3%">31					<input type="hidden" name="id[]" id="id[]" value="31" /></td>
-				<td width="40%"><span class="minusSign" id="rowid_31" onclick="DisplayRows(31);">保险</span></td>
-				<td width="20%" align="center"><a href="goodstype_save.php?action=up&id=31&parentid=0&orderid=2" class="leftArrow" title="提升排序"></a>
-					<input type="text" name="orderid[]" id="orderid[]" class="inputls" value="2" />
-					<a href="goodstype_save.php?action=down&id=31&parentid=0&orderid=2" class="rightArrow" title="下降排序"></a></td>
-				<td width="32%" class="action endCol"><span><a href="goodstype_add.php?id=31">添加子类别</a></span> | <span><a href="goodsattr.php?gid=31">属性管理</a></span> | <span><a href="goodstype_save.php?id=31&action=check&checkinfo=true" title="点击进行显示与隐藏操作">隐藏</a></span> | <span><a href="goodstype_update.php?id=31">修改</a></span> | <span class="nb"><a href="goodstype_save.php?action=del&id=31" onclick="return ConfDel(2);">删除</a></span></td>
-			</tr>
-		</table>
-	</div>
-
-	</form>
-<div class="bottomToolbar"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAll('goodstype_save.php');" onclick="return ConfDelAll(2);">删除</a>　<span>操作：</span><a href="javascript:UpOrderID('goodstype_save.php');">排序</a> - <a href="javascript:ShowAllRows();">展开</a> - <a href="javascript:HideAllRows();">隐藏</a></span> <a href="goodstype_add.php" class="dataBtn">添加商品类别</a></div>
-<div class="page">
-	<div class="pageText">共有<span>7</span>条记录</div>
-</div>
-<div class="quickToolbar">
-	<div class="qiuckWarp">
-		<div class="quickArea"><span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:DelAll('goodstype_save.php');" onclick="return ConfDelAll(2);">删除</a>　<span>操作：</span><a href="javascript:UpOrderID('goodstype_save.php');">排序</a> - <a href="javascript:ShowAllRows();">展开</a> - <a href="javascript:HideAllRows();">隐藏</a></span> <a href="goodstype_add.php" class="dataBtn">添加商品类别</a> <span class="pageSmall">
-			<div class="pageText">共有<span>7</span>条记录</div>
-			</span></div>
-		<div class="quickAreaBg"></div>
-	</div>
-</div>
+</form>
 </body>
 </html>
