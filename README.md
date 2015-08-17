@@ -24,6 +24,7 @@
 ### Wiki文档
 <hr/>
 功能描述　[»](https://github.com/kac8/Parkying/wiki/Home)<br/>
+业务模型　[»](https://github.com/kac8/Parkying/wiki/model)<br/>
 接口说明　[»](https://github.com/kac8/Parkying/wiki/Interface)<br/>
 数据字典　[»](https://github.com/kac8/Parkying/wiki/Database)<br/>
 游戏规则　[»](https://github.com/kac8/Parkying/wiki/rule)<br/>
